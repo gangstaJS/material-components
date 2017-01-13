@@ -11,7 +11,7 @@ const wpConfig = {
     'lib': `${sourcePath}/lib.js`
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join('./', 'dist'),
     filename: '[name].build.js',
     library: 'VueReusableMaterialComponents',
     libraryTarget: 'umd',

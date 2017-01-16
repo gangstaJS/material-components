@@ -14,38 +14,62 @@
 
 <body>
 
-
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" id="examples">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Examples</span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="javascript:;">Text Fields</a>
-            <a class="mdl-navigation__link" href="javascript:;">Selects</a>
+            <a class="mdl-navigation__link" href="javascript:;">Buttons</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
         <div class="page-content" style="padding: 10px;">
             <h4>Text Fields</h4>
 
-            <material-input></material-input>
+            <div id="examples">
+                <m-textfield label="Text..."></m-textfield>
+                <br>
+                <m-textfield float-label="Textarea..." textarea></m-textfield>
+                <br>
+                <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
+                <br>
+                <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
+                <br>
 
-            <material-input :type="'password'" :label="'Password'"></material-input>
+                <div>
+                    <div>Code:</div>
+                    <textarea cols="100" rows="6">
 
-            <material-input :type="'number'" :label="'Number'"></material-input>
+                    <m-textfield label="Text..."></m-textfield>
+                    <m-textfield float-label="Textarea..." textarea></m-textfield>
+                    <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
+                    <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
 
-            <div>
-                <div>Code:</div>
-                <textarea cols="100" rows="6">
-                <material-input
-                    :value="'Some text here'"
-                    :class-name="{'someClassName: true'}"
-                    :label="'Text'"
-                    :type="'password'">
-                </material-input>
-                </textarea>
+                    </textarea>
+                </div>
             </div>
 
-            <!-- text -->
+            <div id="test-form">
+                <h4>Test Form</h4>
+
+                <form v-on:submit.prevent="onSubmit">
+                    <m-textfield float-label="First Name" v-model="form.firstName"></m-textfield>
+                    <br>
+                    <m-textfield float-label="Last Name" v-model="form.lastName"></m-textfield>
+                    <br>
+                    <m-textfield float-label="Email" pattern="(.+)@(.+){2,}\.(.+){2,}" error="Invalid email"></m-textfield>
+                    <br>
+                    <m-textfield float-label="Password" type="password" v-model="form.password" pattern=".{3,}"></m-textfield>
+                    <br>
+                    <m-textfield float-label="Confirm password" type="password" pattern=".{3,}" error="Passwords not match"></m-textfield>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                        Button
+                    </button>
+                </form>
+
+                <div>{{form}}</div>
+            </div>
 
         </div>
     </main>
@@ -58,16 +82,31 @@
 
     Vue.use(VueReusableMaterialComponents);
 
-    new Vue({
-        el: '#examples',
-//        data:{
-//            inputExample1: {
-//                testInputText: 'Hello all!',
-//                testInputLabel: 'placeholder text....',
-//                type: 'password',
-//                classNames: {'test-class': true },
-//            }
-//        }
+    function vue(params) {
+        return new Vue(params);
+    };
+
+    vue({
+        el: '#examples'
+    });
+
+
+    vue({
+        el: '#test-form',
+        data: {
+            form: {
+                firstName: '',
+                lastName: '',
+                email: ''
+            }
+        },
+        methods: {
+            onSubmit: function(e) {
+                console.log(this.form.firstName);
+                console.log(this.form.lastName);
+                console.log(this.form.email);
+            }
+        }
     })
 </script>
 

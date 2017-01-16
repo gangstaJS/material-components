@@ -131,7 +131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options;
 	}
-	__vue_options__.__file = "/Users/oz/src/material-components/src/text-fields/input.vue";
+	__vue_options__.__file = "/Users/oz/src/material-components/src/text-fields/textfield.vue";
 	__vue_options__.render = __vue_template__.render;
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns;
 	
@@ -150,7 +150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  })();
 	}
 	if (__vue_options__.functional) {
-	  console.error("[vue-loader] input.vue: functional components are not supported and should be defined in plain js files using render functions.");
+	  console.error("[vue-loader] textfield.vue: functional components are not supported and should be defined in plain js files using render functions.");
 	}
 	
 	module.exports = __vue_exports__;

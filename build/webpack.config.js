@@ -87,7 +87,7 @@ const wpConfig = {
 if(process.env.NODE_ENV != 'STAGE') {
   wpConfig.debug = true;
   wpConfig.devtool = "#inline-source-map";
-  open('http://localhost:9095/examples');
+  // open('http://localhost:9095/examples');
 }
 
 module.exports = wpConfig;

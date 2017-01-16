@@ -1,10 +1,10 @@
 import SetupMdl from './directives/setup-mdl';
 
 // components import
-import MaterialInput from './text-fields/input.vue';
+import MTextfield from './text-fields/textfield.vue';
 
 const components = {
-  MaterialInput
+  MTextfield
 }
 
 const directives = {

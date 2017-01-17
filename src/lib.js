@@ -2,9 +2,11 @@ import SetupMdl from './directives/setup-mdl';
 
 // components import
 import MTextfield from './text-fields/textfield.vue';
+import MButton from './button.vue';
 
 const components = {
-  MTextfield
+  MTextfield,
+  MButton
 }
 
 const directives = {

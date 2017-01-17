@@ -1,0 +1,5 @@
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--active {
+    color: #fff;
+    background-color: #3f51b5;
+    opacity: .8;
+}

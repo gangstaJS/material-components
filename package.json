@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gangstaJS/material-components#readme",
   "dependencies": {
+    "vee-validate": "^0.9.3",
     "vue": "^2.1.8",
     "vue-loader": "^10.0.2"
   },

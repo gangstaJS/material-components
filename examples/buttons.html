@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Examples</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="/examples/css/style.css">
+
+</head>
+
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Examples</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="/examples">Text Fields</a>
+            <a class="mdl-navigation__link mdl-navigation__link--active" href="/examples/buttons.html">Buttons</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content" style="padding: 10px;">
+            <h4>Buttons</h4>
+
+            <div id="examples">
+
+
+                <div>
+                    <div>Code:</div>
+                    <textarea cols="100" rows="6">
+                    </textarea>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+
+<script src="../dist/lib.build.js"></script>
+
+<script>
+    Vue.use(VueReusableMaterialComponents);
+
+    function vue(params) {
+        return new Vue(params);
+    };
+
+    Vue.config.debug = true;
+
+    vue({
+        el: '#examples'
+    });
+</script>
+
+</body>
+</html>

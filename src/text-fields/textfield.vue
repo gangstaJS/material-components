@@ -1,6 +1,5 @@
 <template>
-    <div class="mdl-textfield mdl-js-textfield" :class="{'mdl-textfield--floating-label': floatLabel, 'mdl-textfield--expandable': expandable, 'is-dirty': isDirty, 'is-disabled': disabled}">
-
+    <div class="mdl-textfield mdl-js-textfield" :class="{'mdl-textfield--floating-label': floatLabel, 'mdl-textfield--expandable': expandable, 'is-dirty': isDirty, 'is-disabled': disabled }">
         <slot v-if="expandable" name="expandable-button">
             <label class="mdl-button mdl-js-button mdl-button--icon" :for="id">
                 <i class="material-icons">{{expandable}}</i>

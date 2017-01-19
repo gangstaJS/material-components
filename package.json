@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --bail --progress --hide-modules --config build/webpack.config.js",
+    "build:examples": "webpack --bail --progress --hide-modules --config build/webpack.examples.js",
     "start": "webpack-dev-server --inline --compress --hide-modules --output-public-path='dist/' --config build/webpack.config.js"
   },
   "repository": {
@@ -35,9 +36,11 @@
     "node-sass": "^3.4.0",
     "open": "0.0.5",
     "postcss-loader": "^1.1.1",
+    "raw-loader": "^0.5.1",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
+    "vue-router": "^2.1.2",
     "vue-template-compiler": "^2.1.8",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

@@ -4,18 +4,17 @@ var autoprefixer = require('autoprefixer');
 const open = require('open');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const sourcePath =  './src';
+const sourcePath =  './examples/src';
 
 const wpConfig = {
   entry: {
-    'lib': `${sourcePath}/lib.js`,
-    vendors: 'vue',
+    'app': `${sourcePath}/app.js`
   },
   output: {
-    path: path.join('./', 'dist'),
+    path: path.join('./examples', 'dest'),
     filename: '[name].build.js',
-    library: 'VueReusableMaterialComponents',
-    libraryTarget: 'umd',
+    // library: 'VueReusableMaterialComponents',
+    // libraryTarget: 'umd',
   },
 
   resolve: {
@@ -30,6 +29,8 @@ const wpConfig = {
   // resolveLoader: {
   //   fallback: [path.join(__dirname, '../node_modules')]
   // },
+
+  watch: true,
 
   module: {
     loaders: [

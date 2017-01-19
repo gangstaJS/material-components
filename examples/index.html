@@ -9,128 +9,25 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!--<script src="../node_modules/vee-validate/dist/vee-validate.min.js"></script>-->
-
     <link rel="stylesheet" href="examples/css/style.css">
 
 </head>
 
 <body>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Examples</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link mdl-navigation__link--active" href="examples">Text Fields</a>
-            <a class="mdl-navigation__link" href="examples/buttons.html">Buttons</a>
-        </nav>
-    </div>
+<div id="examples" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <ex-nav></ex-nav>
+
     <main class="mdl-layout__content">
         <div class="page-content" style="padding: 10px;">
-            <h4>Text Fields</h4>
-
-            <div id="examples">
-                <m-textfield label="Text..."></m-textfield>
-                <br>
-                <m-textfield float-label="Textarea..." textarea></m-textfield>
-                <br>
-                <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
-                <br>
-                <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
-                <br>
-
-                <div>
-                    <div>Code:</div>
-                    <textarea cols="100" rows="6">
-
-                    <m-textfield label="Text..."></m-textfield>
-                    <m-textfield float-label="Textarea..." textarea></m-textfield>
-                    <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
-                    <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
-
-                    </textarea>
-                </div>
-            </div>
-
-            <div id="test-form">
-                <h4>Test Form</h4>
-
-                <form @submit.prevent="onSubmit">
-                    <m-textfield float-label="First Name" v-model="form.firstName"></m-textfield>
-                    <br>
-                    <m-textfield float-label="Last Name" v-model="form.lastName"></m-textfield>
-                    <br>
-                    <m-textfield float-label="Email" pattern="(.+)@(.+){2,}\.(.+){2,}" error="Invalid email"></m-textfield>
-                    <br>
-                    <m-textfield float-label="Password" type="password" v-model="form.password" pattern=".{3,}"></m-textfield>
-                    <br>
-                    <m-textfield float-label="Confirm password" type="password" pattern=".{3,}" error="Passwords not match"></m-textfield>
-                    <br>
-                    <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
-                        Button
-                    </button>
-                </form>
-
-                <div>{{form}}</div>
-            </div>
-
-
-            <!--<div id="test">-->
-                <!--<input type="text"-->
-                       <!--name="test1"-->
-                       <!--v-model="test1"-->
-                       <!--:v-validate="test1"-->
-                       <!--data-vv-rules="required|alpha"-->
-                       <!--:class="{'input': true, 'is-danger': errors.has('test1') }">-->
-            <!--</div>-->
-
+            <router-view></router-view>
         </div>
     </main>
 </div>
 
 
 <script src="../dist/lib.build.js"></script>
-
-<script>
-    Vue.use(VueReusableMaterialComponents);
-//    Vue.use(VeeValidate);
-
-    function vue(params) {
-        return new Vue(params);
-    };
-
-    Vue.config.debug = true;
-
-    vue({
-        el: '#examples'
-    });
-
-//    vue({
-//        el: '#test',
-//        data: {
-//            test1: 'hello',
-//        }
-//    });
-
-
-    vue({
-        el: '#test-form',
-        data: {
-            form: {
-                firstName: '',
-                lastName: '',
-                email: ''
-            }
-        },
-        methods: {
-            onSubmit: function(e) {
-                console.log(this.form.firstName);
-                console.log(this.form.lastName);
-                console.log(this.form.email);
-            }
-        }
-    })
-</script>
+<script src="/examples/dest/app.build.js"></script>
 
 </body>
 </html>

@@ -10,6 +10,10 @@
             <router-link to="/buttons" class="mdl-navigation__link">
                 Buttons
             </router-link>
+
+            <router-link to="/snackbar" class="mdl-navigation__link">
+                Snackbar
+            </router-link>
         </nav>
     </div>
 </template>

@@ -15,12 +15,12 @@
             <div>
                 <div>Code:</div>
                     <textarea cols="100" rows="6">
-
+<pre>
                     <m-textfield label="Text..."></m-textfield>
                     <m-textfield float-label="Textarea..." textarea></m-textfield>
                     <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
                     <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
-
+</pre>
                     </textarea>
             </div>
         </div>

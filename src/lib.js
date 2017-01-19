@@ -1,12 +1,14 @@
 import SetupMdl from './directives/setup-mdl';
 
 // components import
-import MTextfield from './text-fields/textfield.vue';
+import MTextfield from './textfield.vue';
 import MButton from './button.vue';
+import MSnackbar from './snackbar.vue';
 
 const components = {
   MTextfield,
-  MButton
+  MButton,
+  MSnackbar,
 }
 
 const directives = {

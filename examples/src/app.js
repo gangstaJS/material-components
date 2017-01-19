@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import ExNav from './components/nav.vue';
 import TextFields from './components/textfields.vue';
 import Buttons from './components/buttons.vue';
+import Snackbar from './components/snackbar.vue';
 
 // const components = {
 //   ExNav,
@@ -13,9 +14,10 @@ Vue.use(VueReusableMaterialComponents);
 
 
 const routes = [
-  // { path: '*', redirect: { name: 'textfields' }},
   { path: '/textfields', component: TextFields, name: 'textfields'},
   { path: '/buttons', component: Buttons },
+  { path: '/snackbar', component: Snackbar },
+  { path: '*', redirect: { name: 'textfields' }},
 ];
 
 const router = new VueRouter({

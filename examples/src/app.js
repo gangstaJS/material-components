@@ -1,5 +1,9 @@
 // import Vue from 'vue';
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource';
+import AsyncComputed from 'vue-async-computed'
+
+
 import ExNav from './components/nav.vue';
 import TextFields from './components/textfields.vue';
 import Buttons from './components/buttons.vue';
@@ -12,6 +16,8 @@ import Selects from './components/selects.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueReusableMaterialComponents);
+Vue.use(VueResource);
+Vue.use(AsyncComputed);
 
 
 const routes = [

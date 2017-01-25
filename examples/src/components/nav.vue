@@ -14,6 +14,10 @@
             <router-link to="/snackbar" class="mdl-navigation__link">
                 Snackbar
             </router-link>
+
+            <router-link to="/selects" class="mdl-navigation__link">
+                Selects
+            </router-link>
         </nav>
     </div>
 </template>

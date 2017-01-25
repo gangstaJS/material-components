@@ -48,7 +48,7 @@ const wpConfig = {
       },
       {
         test: /\.sass$/,
-        loaders: ['style', 'css?root=' + __dirname + sourcePath, 'postcss-loader', 'sass'],
+        loaders: ['style', 'css?root=' + __dirname + sourcePath, 'sass-loader', 'sass'],
       },
       {
         test: /\.vue$/,
@@ -56,6 +56,11 @@ const wpConfig = {
 
       },
     ]
+  },
+  vue: {
+    loaders: {
+      scss: 'style!css!sass'
+    }
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),

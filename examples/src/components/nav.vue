@@ -18,6 +18,10 @@
             <router-link to="/selects" class="mdl-navigation__link">
                 Selects
             </router-link>
+
+            <router-link to="/sliders" class="mdl-navigation__link">
+                Sliders
+            </router-link>
         </nav>
     </div>
 </template>

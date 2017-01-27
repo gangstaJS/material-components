@@ -9,6 +9,7 @@ import TextFields from './components/textfields.vue';
 import Buttons from './components/buttons.vue';
 import Snackbar from './components/snackbar.vue';
 import Selects from './components/selects.vue';
+import Sliders from './components/sliders.vue';
 
 // const components = {
 //   ExNav,
@@ -25,6 +26,7 @@ const routes = [
   { path: '/buttons', component: Buttons },
   { path: '/snackbar', component: Snackbar },
   { path: '/selects', component: Selects },
+  { path: '/Sliders', component: Sliders },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

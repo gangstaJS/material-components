@@ -22,6 +22,14 @@
             <router-link to="/sliders" class="mdl-navigation__link">
                 Sliders
             </router-link>
+
+            <router-link to="/badges" class="mdl-navigation__link">
+                Badges
+            </router-link>
+
+            <router-link to="/menu" class="mdl-navigation__link">
+                Menu
+            </router-link>
         </nav>
     </div>
 </template>

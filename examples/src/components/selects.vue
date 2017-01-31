@@ -11,10 +11,6 @@
             <m-select :data-source="testData" id="test1" v-model="m"></m-select>
 
             <div>{{m}}</div>
-        </p>
-
-
-        </p>
     </div>
 </template>
 <script>

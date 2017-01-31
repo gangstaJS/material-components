@@ -6,6 +6,7 @@ import MButton from './button.vue';
 import MSnackbar from './snackbar.vue';
 import MSelect from './select/select.vue';
 import MSlider from './slider.vue';
+import MBadge from './badge';
 
 const components = {
   MTextfield,
@@ -13,6 +14,7 @@ const components = {
   MSnackbar,
   MSelect,
   MSlider,
+  MBadge,
 }
 
 const directives = {

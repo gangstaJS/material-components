@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1 class="test">Hello</h1>
-
     <m-badge v-model="b" href="https://google.com" :hide="h">Inbox</m-badge>
 
     <br>
@@ -26,14 +24,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.test {
-color: tan;}
-  h1 {
-    color: red;
-  }
-</style>
 
 <script>
   export default {

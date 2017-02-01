@@ -11,7 +11,11 @@ https://getmdl.io/components/
 `npm install`
 
 
-Run examples `npm start` => `http://localhost:9095/examples/#/textfields`
+Run dev server `npm start`
+
+Run examples `npm run build:examples`
+
+Goto: `http://localhost:9095/examples/#/textfields`
 
 
 Build project: `npm run build:dev`

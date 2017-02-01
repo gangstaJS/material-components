@@ -4,7 +4,7 @@
             <input type="text" readonly="true" :value="_value.name" :id="id" class="mdl-textfield__input"> <span class="caret">▼</span>
         </div>
 
-        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px">
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px" ref="menu">
 
             <slot v-if="!data.length">
                 <div style="text-align: center;">
@@ -118,8 +118,8 @@
         },
 
         mounted () {
-            componentHandler.upgradeElement(this.$el.querySelector('.mdl-menu'), 'MaterialMenu');
-            this.$menu = this.$el.querySelector('.mdl-menu').MaterialMenu;
+            componentHandler.upgradeElement(this.$refs.menu, 'MaterialMenu');
+            this.$menu = this.$refs.menu.MaterialMenu;
         }
     }
 </script>

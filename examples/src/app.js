@@ -12,6 +12,7 @@ import Selects from './components/selects.vue';
 import Sliders from './components/sliders.vue';
 import Badges from './components/badges.vue';
 import Menu from './components/menu.vue';
+import Loading from './components/loading.vue';
 
 // const components = {
 //   ExNav,
@@ -31,6 +32,7 @@ const routes = [
   { path: '/sliders', component: Sliders },
   { path: '/badges', component: Badges },
   { path: '/menu', component: Menu },
+  { path: '/loading', component: Loading },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

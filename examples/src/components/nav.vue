@@ -30,6 +30,10 @@
             <router-link to="/menu" class="mdl-navigation__link">
                 Menu
             </router-link>
+
+            <router-link to="/loading" class="mdl-navigation__link">
+                Loading
+            </router-link>
         </nav>
     </div>
 </template>

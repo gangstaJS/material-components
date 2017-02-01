@@ -24,8 +24,6 @@
                             name: el.name,
                             value: el.numericCode,
                         });
-
-
                     });
 
                     return {data: c.splice(0, 10)};

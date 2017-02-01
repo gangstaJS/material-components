@@ -8,6 +8,7 @@ import MSelect from './select/select.vue';
 import MSlider from './slider.vue';
 import MBadge from './badge';
 import MProgress from './progress.vue';
+import MSpinner from './spinner.vue';
 
 const components = {
   MTextfield,
@@ -17,6 +18,7 @@ const components = {
   MSlider,
   MBadge,
   MProgress,
+  MSpinner,
 }
 
 const directives = {

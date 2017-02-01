@@ -27,6 +27,32 @@
             <div>Code:</div>
             <textarea cols="100" rows="6" :value="examples"></textarea>
         </div>
+
+        <h3>Spinner</h3>
+
+        <div>
+            <h4>Default:</h4>
+            <m-spinner></m-spinner>
+        </div>
+
+        <div>
+            <h4>Single color:</h4>
+            <m-spinner single-color></m-spinner>
+        </div>
+
+        <div>
+            <h4>Hide spinner</h4>
+            <m-spinner :active="active"></m-spinner>
+
+            <div>
+                <input type="checkbox" v-model="active">
+            </div>
+        </div>
+
+        <div>
+            <div>Code:</div>
+            <textarea cols="100" rows="6" :value="examples_spinner"></textarea>
+        </div>
     </div>
 </template>
 
@@ -37,10 +63,17 @@
                 progress: 40,
                 progress2: 30,
                 buffer: 60,
+                active: false,
                 examples: `
                     <m-progress v-model="progress"></m-progress>
                     <m-progress v-model="progress2" :buffer="buffer"></m-progress>
                     <m-progress indeterminate></m-progress>
+                `,
+
+                examples_spinner: `
+                   <m-spinner></m-spinner>
+                   <m-spinner single-color></m-spinner>
+                   <m-spinner :active="active"></m-spinner>
                 `,
             }
         }

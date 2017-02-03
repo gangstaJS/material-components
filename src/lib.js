@@ -12,6 +12,7 @@ import MSpinner from './spinner.vue';
 import MCheckbox from './toggles/checkbox.vue';
 import MRadio from './toggles/radio.vue';
 import MSwitch from './toggles/switch.vue';
+import MIconToggle from './toggles/icon.vue';
 
 const components = {
   MTextfield,
@@ -25,6 +26,7 @@ const components = {
   MCheckbox,
   MRadio,
   MSwitch,
+  MIconToggle,
 }
 
 const directives = {

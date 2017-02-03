@@ -46,9 +46,33 @@
         <br>
         {{switch2}}
 
+        <m-switch v-model="switch2" disabled>Off</m-switch>
+        <br>
+        {{switch2}}
+
         <div>
             <div>Code:</div>
                     <textarea cols="100" rows="6" :value="examplesSwitch">
+                    </textarea>
+        </div>
+
+
+        <h4>Icon Taggle</h4>
+
+        <m-icon-toggle v-model="iToggle" icon="format_bold"></m-icon-toggle>
+        <br>
+
+        {{iToggle}}
+
+        <br>
+
+        <m-icon-toggle v-model="iToggle2" icon="search"></m-icon-toggle>
+        <br>
+        {{iToggle2}}
+
+        <div>
+            <div>Code:</div>
+                    <textarea cols="100" rows="6" :value="examplesIconToggles">
                     </textarea>
         </div>
 
@@ -77,6 +101,14 @@
                 examplesSwitch: `
                     <m-switch v-model="switch1">On</m-switch>
                     <m-switch v-model="switch2">Off</m-switch>
+                `,
+
+                iToggle: true,
+                iToggle2: false,
+
+                examplesIconToggles: `
+                    <m-icon-toggle v-model="iToggle" icon="format_bold"></m-icon-toggle>
+                    <m-icon-toggle v-model="iToggle2" icon="search"></m-icon-toggle>
                 `,
             }
         }

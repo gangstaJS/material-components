@@ -9,6 +9,7 @@ import MSlider from './slider.vue';
 import MBadge from './badge';
 import MProgress from './progress.vue';
 import MSpinner from './spinner.vue';
+import MCheckbox from './toggles/checkbox.vue';
 
 const components = {
   MTextfield,
@@ -19,6 +20,7 @@ const components = {
   MBadge,
   MProgress,
   MSpinner,
+  MCheckbox,
 }
 
 const directives = {

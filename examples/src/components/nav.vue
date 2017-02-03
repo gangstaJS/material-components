@@ -34,6 +34,10 @@
             <router-link to="/loading" class="mdl-navigation__link">
                 Loading
             </router-link>
+
+            <router-link to="/toggles" class="mdl-navigation__link">
+                Toggles
+            </router-link>
         </nav>
     </div>
 </template>

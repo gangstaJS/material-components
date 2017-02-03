@@ -1,11 +1,16 @@
 <template>
-    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-        <input type="checkbox" class="mdl-checkbox__input" :disabled="disabled" v-model="checked" @change="fireChange">
-        <span class="mdl-checkbox__label">
-            <slot></slot>
-        </span>
+    <label class="mdl-switch mdl-js-switch is-upgraded mdl-js-ripple-effect">
+        <input class="mdl-switch__input"
+               type="checkbox"
+               v-model="checked"
+               @change="fireChange"
+               :disabled="disabled"/>
+    <span class="mdl-switch__label">
+      <slot></slot>
+    </span>
     </label>
 </template>
+
 <script>
     export default {
         props: {

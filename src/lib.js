@@ -10,6 +10,8 @@ import MBadge from './badge';
 import MProgress from './progress.vue';
 import MSpinner from './spinner.vue';
 import MCheckbox from './toggles/checkbox.vue';
+import MRadio from './toggles/radio.vue';
+import MSwitch from './toggles/switch.vue';
 
 const components = {
   MTextfield,
@@ -21,6 +23,8 @@ const components = {
   MProgress,
   MSpinner,
   MCheckbox,
+  MRadio,
+  MSwitch,
 }
 
 const directives = {

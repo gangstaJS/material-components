@@ -101,6 +101,7 @@
                 examplesSwitch: `
                     <m-switch v-model="switch1">On</m-switch>
                     <m-switch v-model="switch2">Off</m-switch>
+                    <m-switch v-model="switch2" disabled>Off</m-switch>
                 `,
 
                 iToggle: true,

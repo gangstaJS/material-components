@@ -13,6 +13,8 @@ import MCheckbox from './toggles/checkbox.vue';
 import MRadio from './toggles/radio.vue';
 import MSwitch from './toggles/switch.vue';
 import MIconToggle from './toggles/icon.vue';
+import MMenu from './menu/menu.vue';
+import MMenuItem from './menu/item.vue';
 
 const components = {
   MTextfield,
@@ -27,6 +29,8 @@ const components = {
   MRadio,
   MSwitch,
   MIconToggle,
+  MMenu,
+  MMenuItem,
 }
 
 const directives = {

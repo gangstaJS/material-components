@@ -38,6 +38,10 @@
             <router-link to="/toggles" class="mdl-navigation__link">
                 Toggles
             </router-link>
+
+            <router-link to="/tabs" class="mdl-navigation__link">
+                Tabs
+            </router-link>
         </nav>
     </div>
 </template>

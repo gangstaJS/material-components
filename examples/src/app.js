@@ -1,7 +1,6 @@
 // import Vue from 'vue';
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
-import AsyncComputed from 'vue-async-computed'
 
 
 import ExNav from './components/nav.vue';
@@ -14,6 +13,7 @@ import Badges from './components/badges.vue';
 import Menu from './components/menu.vue';
 import Loading from './components/loading.vue';
 import Toggles from './components/toggles.vue';
+import Tabs from './components/tabs.vue';
 
 // const components = {
 //   ExNav,
@@ -22,7 +22,6 @@ import Toggles from './components/toggles.vue';
 Vue.use(VueRouter);
 Vue.use(VueReusableMaterialComponents);
 Vue.use(VueResource);
-Vue.use(AsyncComputed);
 
 
 const routes = [
@@ -35,6 +34,7 @@ const routes = [
   { path: '/menu', component: Menu },
   { path: '/loading', component: Loading },
   { path: '/toggles', component: Toggles },
+  { path: '/tabs', component: Tabs },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

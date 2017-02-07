@@ -15,6 +15,8 @@ import MSwitch from './toggles/switch.vue';
 import MIconToggle from './toggles/icon.vue';
 import MMenu from './menu/menu.vue';
 import MMenuItem from './menu/item.vue';
+import MTabs from './tabs/tabs.vue';
+import MTab from './tabs/tab.vue';
 
 const components = {
   MTextfield,
@@ -31,6 +33,8 @@ const components = {
   MIconToggle,
   MMenu,
   MMenuItem,
+  MTabs,
+  MTab,
 }
 
 const directives = {

@@ -2,7 +2,7 @@
     <div>
         <h4>Checkbox</h4>
 
-        <m-checkbox v-model="checkbox1">This one</m-checkbox>
+        <m-checkbox v-model="checkbox1" @change="select">This one</m-checkbox>
 
         <m-checkbox v-model="checkbox2">Label</m-checkbox>
 
@@ -80,6 +80,11 @@
 </template>
 <script>
     export default {
+        methods: {
+            select: function(val) {
+                this.checkbox2 = val;
+            }
+        },
         data() {
             return {
                 checkbox1: false,

@@ -46,6 +46,10 @@
             <router-link to="/tooltips" class="mdl-navigation__link">
                 Tooltips
             </router-link>
+
+            <router-link to="/table" class="mdl-navigation__link">
+                Table
+            </router-link>
         </nav>
     </div>
 </template>

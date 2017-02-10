@@ -19,6 +19,14 @@ import MTabs from './tabs/tabs.vue';
 import MTab from './tabs/tab.vue';
 import MTooltip from './tooltip.vue';
 
+// table
+import MTable from './table/table.vue';
+import MTableRow from './table/tableRow.vue';
+import MTableCell from './table/tableCell.vue';
+import MTableHead from './table/tableHead.vue';
+import MTableH from './table/tableH.vue';
+import MTableBody from './table/tableBody.vue';
+
 const components = {
   MTextfield,
   MButton,
@@ -37,6 +45,13 @@ const components = {
   MTabs,
   MTab,
   MTooltip,
+
+  MTable,
+  MTableRow,
+  MTableCell,
+  MTableHead,
+  MTableH,
+  MTableBody,
 }
 
 const directives = {

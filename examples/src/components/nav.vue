@@ -42,6 +42,10 @@
             <router-link to="/tabs" class="mdl-navigation__link">
                 Tabs
             </router-link>
+
+            <router-link to="/tooltips" class="mdl-navigation__link">
+                Tooltips
+            </router-link>
         </nav>
     </div>
 </template>

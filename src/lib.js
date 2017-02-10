@@ -17,6 +17,7 @@ import MMenu from './menu/menu.vue';
 import MMenuItem from './menu/item.vue';
 import MTabs from './tabs/tabs.vue';
 import MTab from './tabs/tab.vue';
+import MTooltip from './tooltip.vue';
 
 const components = {
   MTextfield,
@@ -35,6 +36,7 @@ const components = {
   MMenuItem,
   MTabs,
   MTab,
+  MTooltip,
 }
 
 const directives = {

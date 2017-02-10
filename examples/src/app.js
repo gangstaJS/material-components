@@ -14,6 +14,7 @@ import Menu from './components/menu.vue';
 import Loading from './components/loading.vue';
 import Toggles from './components/toggles.vue';
 import Tabs from './components/tabs.vue';
+import Tooltips from './components/tooltips.vue';
 
 // const components = {
 //   ExNav,
@@ -35,6 +36,7 @@ const routes = [
   { path: '/loading', component: Loading },
   { path: '/toggles', component: Toggles },
   { path: '/tabs', component: Tabs },
+  { path: '/tooltips', component: Tooltips },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

@@ -70,7 +70,6 @@
 
         methods: {
             onSelect: function(items) {
-                this.sel = {};
                 this.sel = items;
             },
         },

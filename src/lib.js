@@ -26,6 +26,7 @@ import MTableCell from './table/tableCell.vue';
 import MTableHead from './table/tableHead.vue';
 import MTableH from './table/tableH.vue';
 import MTableBody from './table/tableBody.vue';
+import MDialog from './dialog.vue';
 
 const components = {
   MTextfield,
@@ -52,6 +53,8 @@ const components = {
   MTableHead,
   MTableH,
   MTableBody,
+
+  MDialog,
 }
 
 const directives = {

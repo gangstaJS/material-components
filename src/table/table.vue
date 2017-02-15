@@ -26,7 +26,13 @@
 
         methods: {
             emitSelection() {
-                this.$emit('select', this.selectedRows);
+                let selectedRows = [];
+
+                Object.keys(this.selectedRows).forEach(k => {
+                    selectedRows.push(this.selectedRows[k]);
+                });
+
+                this.$emit('select', selectedRows);
             }
         },
 

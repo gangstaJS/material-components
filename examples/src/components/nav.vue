@@ -50,6 +50,10 @@
             <router-link to="/table" class="mdl-navigation__link">
                 Table
             </router-link>
+
+            <router-link to="/dialogs" class="mdl-navigation__link">
+                Dialogs
+            </router-link>
         </nav>
     </div>
 </template>

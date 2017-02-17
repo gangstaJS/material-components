@@ -1,43 +1,92 @@
 <template>
-    <div class="mdl-dialog__custom-container">
+    <div class="mdl-dialog-container"
+         ref="out"
+         @click="closeIfOutside"
+         v-show="show">
         <div class="mdl-dialog">
+            <div class="mdl-dialog__title">{{title}}</div>
             <div class="mdl-dialog__content">
-                <p>
-                    Allow this site to collect usage data to improve your experience?
-                </p>
+                <slot></slot>
             </div>
-            <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-                <button type="button" class="mdl-button">Agree</button>
-                <button type="button" class="mdl-button close">Disagree</button>
+            <div class="mdl-dialog__actions" :class="actionsClasses">
+                <slot name="actions">
+                    <m-button @click.native.stop="close">Close</m-button>
+                </slot>
             </div>
         </div>
     </div>
 </template>
 
-<style lang="scss">
-    .mdl-dialog {
-        background: #fff;
-
-        &__custom-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content:center;
-            align-items: center;
-            top:0;
-            left: 0;
-            z-index: 999;
-            background: rgba(0,0,0,0.3);
-        }
-    }
-</style>
-
 <script>
-    export default{
-        data(){
-            return {}
-        }
+import createFocusTrap from 'focus-trap'
+export default {
+  computed: {
+    actionsClasses () {
+      return {
+        'mdl-dialog__actions--full-width': this.fullWidth
+      }
     }
+  },
+  data () {
+    return {
+      show: false
+    }
+  },
+  props: {
+    title: {
+      type: String
+    },
+    fullWidth: Boolean,
+    noFocusTrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted () {
+    if (!this.noFocusTrap) this._focusTrap = createFocusTrap(this.$el)
+  },
+  methods: {
+    open () {
+      this.show = true
+      if (this._focusTrap) this.$nextTick(() => this._focusTrap.activate())
+      this.$emit('open')
+    },
+    close () {
+      this.show = false
+      if (this._focusTrap) this._focusTrap.deactivate()
+      this.$emit('close')
+    },
+    closeIfOutside ({ target }) {
+      if (target === this.$refs.out) this.close()
+    }
+  },
+  watch: {
+    noFocusTrap (noFocusTrap) {
+      this._focusTrap = noFocusTrap ? null : createFocusTrap(this.$el)
+    }
+  }
+}
 </script>
+
+<style>
+.mdl-dialog-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+  top:0;
+  left: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.3);
+}
+.mdl-dialog-container .mdl-dialog {
+  background-color:white;
+  padding: 1em;
+  color: black;
+  width: initial;
+  min-width: 280px;
+}
+</style>

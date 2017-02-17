@@ -54,6 +54,10 @@
             <router-link to="/dialogs" class="mdl-navigation__link">
                 Dialogs
             </router-link>
+
+            <router-link to="/cards" class="mdl-navigation__link">
+                Cards
+            </router-link>
         </nav>
     </div>
 </template>

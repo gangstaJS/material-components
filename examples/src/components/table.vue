@@ -16,7 +16,7 @@
                 <m-table-body>
                     <m-table-row v-for="user in testDataSet" selection :m-item="user">
                         <m-table-cell numeric>{{user.id}}</m-table-cell>
-                        <m-table-cell>{{user.email}}</m-table-cell>
+                        <m-table-cell :tooltip="'E-mail: '+user.email" >{{user.email}}</m-table-cell>
                         <m-table-cell>{{user.name}}</m-table-cell>
                     </m-table-row>
                 </m-table-body>
@@ -92,7 +92,7 @@
                         <m-table-body>
                             <m-table-row v-for="user in testDataSet" selection :m-item="user">
                                 <m-table-cell numeric>{{user.id}}</m-table-cell>
-                                <m-table-cell>{{user.email}}</m-table-cell>
+                                <m-table-cell :tooltip="'E-mail: '+user.email" >{{user.email}}</m-table-cell>
                                 <m-table-cell>{{user.name}}</m-table-cell>
                             </m-table-row>
                         </m-table-body>

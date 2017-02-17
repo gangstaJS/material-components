@@ -2,6 +2,10 @@ export function genId() {
   return Math.random().toString(36).substring(7);
 };
 
+export function genIdShort() {
+  return Math.random().toString(36).substring(20);
+};
+
 export function removeClass(obj, cls = '') {
   let classes = obj.className.split(' ');
 

@@ -7,7 +7,7 @@
             <div>{{m2}}</div>
 
         <p>
-            <h3>Async select</h3>
+            <h3>AJAX select</h3>
             <m-select :data-source="testData" id="test1" v-model="m"></m-select>
 
             <div>{{m}}</div>
@@ -17,21 +17,21 @@
     export default {
         data(){
             return {
-                testData: this.$http.get('https://restcountries.eu/rest/v1/all').then(res => {
-                    let c = [];
-                    res.data.forEach(el => {
-                        c.push({
-                            name: el.name,
-                            value: el.numericCode,
+                testData:  function(success, failure) {
+                   this.$http.get('https://restcountries.eu/rest/v1/all').then(res => {
+                        let c = [];
+                        res.data.forEach(el => {
+                            c.push({
+                                name: el.name,
+                                value: el.numericCode,
+                            });
                         });
-                    });
 
-                    return {data: c.splice(0, 10)};
-
-                }),
+                        setTimeout(() => { success(c.splice(0, 5)); }, 2000);
+                   });
+                },
 
                 m: {name: '', value: null},
-
 
                 // simple select
 

@@ -1,19 +1,19 @@
 <template>
     <div class="oz-select-container">
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield mdl-js-textfield" @click="open">
             <input type="text" readonly="true" :value="_value.name" :id="id" class="mdl-textfield__input"> <span class="caret">▼</span>
         </div>
 
         <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px" ref="menu">
 
-            <slot v-if="!data.length">
-                <div style="text-align: center;">
-                    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+            <slot v-if="!dataItems.length">
+                <div style="text-align: center; line-height: 40px;">
+                    <div class="mdl-spinner mdl-js-spinner is-active"></div> <span>Loading...</span>
                 </div>
             </slot>
 
-            <slot v-if="data.length">
-                <li class="mdl-menu__item" v-for="option in data" :disabled="value.value == option.value" :class="cssClasses" @click="itemClick(option)">{{option.name}}</li>
+            <slot>
+                <li class="mdl-menu__item" v-for="option in dataItems" :disabled="value.value == option.value" @click="itemClick(option)">{{option.name}}</li>
             </slot>
         </ul>
     </div>
@@ -39,8 +39,6 @@
     }
 </style>
 <script>
-    import { removeClass } from '../utils';
-
     export default {
         props: {
             id: {
@@ -48,7 +46,7 @@
                 required: true,
             },
             dataSource: {
-                type: [Array, Promise, Object],
+                type: [Array, Function],
             },
             value: {
                 type: Object,
@@ -57,12 +55,8 @@
         },
 
         created () {
-            if('function' === typeof this.source.then) {
-                this.source.then((res) => {
-                   this.data = res.data;
-                });
-            } else {
-                this.data = this.source;
+            if(typeof this.dataSource !== 'function') {
+                this.dataItems = this.dataSource;
             }
         },
 
@@ -71,41 +65,37 @@
                 let val = {name: 'Select...', value: null};
 
                 if(this.value.value) {
-                    let res = this.data.find(el => el.value == this.value.value);
+                    let res = this.dataItems.find(el => el.value == this.value.value);
 
                     if(res) val = res;
                 }
 
                 return val;
-            },
-
-            cssClasses() {
-                return {
-
-                }
-            }
-        },
-
-        watch: {
-            data: function (n) {
-                Vue.nextTick(() => {
-                    // toggle menu for recalculate dropdown size
-                    if(this.$menu.container_.classList.contains('is-visible')) {
-                        this.$menu.hide();
-                        this.$menu.show();
-                    }
-                });
             }
         },
 
         data() {
             return {
-                source: this.dataSource,
-                data: [],
+                dataItems: [],
+                wasOpen: false,
             }
         },
 
         methods: {
+
+            _success(responseData) {
+                this.dataItems = responseData;
+                this.$menu.hide();
+                Vue.nextTick(() => {
+                    this.$menu.show();
+                });
+            },
+
+            _failure(reason) {
+                // TODO
+                console.log(reason);
+            },
+
             itemClick(option) {
                 this.value.name = option.name;
                 this.value.value = option.value;
@@ -114,6 +104,15 @@
                 this.$menu.hide();
 
                 this.isOpen = !this.isOpen;
+            },
+
+            open(ev) {
+                if(!this.wasOpen && typeof this.dataSource === 'function') {
+                    this.wasOpen = true;
+                    this.dataSource(this._success);
+                }
+
+
             }
         },
 

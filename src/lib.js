@@ -31,6 +31,9 @@ import MDialog from './dialog.vue';
 import MCard from './card.vue';
 import MChip from './chip.vue';
 
+import MList from './list/list.vue';
+import MListItem from './list/listItem.vue';
+
 const components = {
   MTextfield,
   MButton,
@@ -60,6 +63,9 @@ const components = {
   MDialog,
   MCard,
   MChip,
+
+  MList,
+  MListItem,
 }
 
 const directives = {

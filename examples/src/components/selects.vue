@@ -1,16 +1,26 @@
 <template>
     <div>
+        <h3>Selects</h3>
         <p>
-            <h3>Simple select</h3>
+            <h4>Default</h4>
             <m-select :data-source="testData2" id="test2" v-model="m2"></m-select>
 
             <div>{{m2}}</div>
+        </p>
 
         <p>
-            <h3>AJAX select</h3>
+
+            <h4>AJAX select</h4>
             <m-select :data-source="testData" id="test1" v-model="m"></m-select>
 
             <div>{{m}}</div>
+
+        </p>
+
+        <div>
+            <div>Code:</div>
+            <textarea cols="100" rows="6" :value="examples"></textarea>
+        </div>
     </div>
 </template>
 <script>
@@ -48,6 +58,11 @@
                 ],
 
                 m2: {name: '', value: null},
+
+                examples: `
+                     <m-select :data-source="testData2" id="test2" v-model="m2"></m-select>
+                     <m-select :data-source="testData" id="test1" v-model="m"></m-select>
+                `
             }
         }
     }

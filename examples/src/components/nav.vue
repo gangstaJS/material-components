@@ -58,6 +58,10 @@
             <router-link to="/cards" class="mdl-navigation__link">
                 Cards
             </router-link>
+
+            <router-link to="/chips" class="mdl-navigation__link">
+                Chips
+            </router-link>
         </nav>
     </div>
 </template>

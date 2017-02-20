@@ -18,6 +18,7 @@ import Tooltips from './components/tooltips.vue';
 import Table from './components/table.vue';
 import Dialogs from './components/dialogs.vue';
 import Cards from './components/cards.vue';
+import Chips from './components/chips.vue';
 
 // const components = {
 //   ExNav,
@@ -43,6 +44,7 @@ const routes = [
   { path: '/table', component: Table },
   { path: '/dialogs', component: Dialogs },
   { path: '/cards', component: Cards },
+  { path: '/chips', component: Chips },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

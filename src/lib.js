@@ -29,6 +29,7 @@ import MTableBody from './table/tableBody.vue';
 
 import MDialog from './dialog.vue';
 import MCard from './card.vue';
+import MChip from './chip.vue';
 
 const components = {
   MTextfield,
@@ -58,6 +59,7 @@ const components = {
 
   MDialog,
   MCard,
+  MChip,
 }
 
 const directives = {

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 
 
+import Usage from './components/usage.vue';
 import ExNav from './components/nav.vue';
 import TextFields from './components/textfields.vue';
 import Buttons from './components/buttons.vue';
@@ -19,6 +20,7 @@ import Table from './components/table.vue';
 import Dialogs from './components/dialogs.vue';
 import Cards from './components/cards.vue';
 import Chips from './components/chips.vue';
+import Lists from './components/lists.vue';
 
 // const components = {
 //   ExNav,
@@ -45,6 +47,8 @@ const routes = [
   { path: '/dialogs', component: Dialogs },
   { path: '/cards', component: Cards },
   { path: '/chips', component: Chips },
+  { path: '/lists', component: Lists },
+  { path: '/usage', component: Usage },
   { path: '*', redirect: { name: 'textfields' }},
 ];
 

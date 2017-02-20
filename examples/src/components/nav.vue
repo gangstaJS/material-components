@@ -2,74 +2,97 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Examples</span>
         <nav class="mdl-navigation">
-
-            <router-link to="/textfields" class="mdl-navigation__link">
-                Text Fields
+            <router-link to="/usage" class="mdl-navigation__link">
+                <b>Getting started</b>
             </router-link>
 
-            <router-link to="/buttons" class="mdl-navigation__link">
-                Buttons
-            </router-link>
-
-            <router-link to="/snackbar" class="mdl-navigation__link">
-                Snackbar
-            </router-link>
-
-            <router-link to="/selects" class="mdl-navigation__link">
-                Selects
-            </router-link>
-
-            <router-link to="/sliders" class="mdl-navigation__link">
-                Sliders
-            </router-link>
-
-            <router-link to="/badges" class="mdl-navigation__link">
-                Badges
-            </router-link>
-
-            <router-link to="/menu" class="mdl-navigation__link">
-                Menu
-            </router-link>
-
-            <router-link to="/loading" class="mdl-navigation__link">
-                Loading
-            </router-link>
-
-            <router-link to="/toggles" class="mdl-navigation__link">
-                Toggles
-            </router-link>
-
-            <router-link to="/tabs" class="mdl-navigation__link">
-                Tabs
-            </router-link>
-
-            <router-link to="/tooltips" class="mdl-navigation__link">
-                Tooltips
-            </router-link>
-
-            <router-link to="/table" class="mdl-navigation__link">
-                Table
-            </router-link>
-
-            <router-link to="/dialogs" class="mdl-navigation__link">
-                Dialogs
-            </router-link>
-
-            <router-link to="/cards" class="mdl-navigation__link">
-                Cards
-            </router-link>
-
-            <router-link to="/chips" class="mdl-navigation__link">
-                Chips
+            <router-link :to="'/'+i.path" v-for="i in sortedMenuItems" class="mdl-navigation__link">
+                {{i.title}}
             </router-link>
         </nav>
     </div>
 </template>
 
 <script>
+import { sortByKey } from '../helpers';
+
 export default {
+    computed: {
+        sortedMenuItems() {
+            return sortByKey(this.menuItems, 'title');
+        }
+    },
+
     data() {
-        return {}
+        return {
+            menuItems: [
+                {
+                    title: 'Text Fields',
+                    path: 'textfields',
+                },
+                {
+                    title: 'Buttons',
+                    path: 'buttons',
+                },
+                {
+                    title: 'Snackbar',
+                    path: 'snackbar',
+                },
+                {
+                    title: 'Selects',
+                    path: 'selects',
+                },
+                {
+                    title: 'Sliders',
+                    path: 'sliders',
+                },
+                {
+                    title: 'Badges',
+                    path: 'badges',
+                },
+                {
+                    title: 'Menu',
+                    path: 'menu',
+                },
+                {
+                    title: 'Loading',
+                    path: 'loading',
+                },
+                {
+                    title: 'Toggles',
+                    path: 'toggles',
+                },
+                {
+                    title: 'Tabs',
+                    path: 'tabs',
+                },
+                {
+                    title: 'Tooltips',
+                    path: 'tooltips',
+                },
+                {
+                    title: 'Tables',
+                    path: 'table',
+                },
+                {
+                    title: 'Dialogs',
+                    path: 'dialogs',
+                },
+                {
+                    title: 'Cards',
+                    path: 'cards',
+                },
+                {
+                    title: 'Chips',
+                    path: 'chips',
+                },
+                {
+                    title: 'Lists',
+                    path: 'lists',
+                },
+            ]
+
+        }
     }
 }
 </script>

@@ -26,7 +26,7 @@
                 this.$root.$emit('msgSent', {
                     message: 'Deleted',
                     actionText: 'Undo',
-                    timeout: 2000,
+                    timeout: 3000,
                     actionHandler: (event) => {
                       this.showChip = true;
                     },

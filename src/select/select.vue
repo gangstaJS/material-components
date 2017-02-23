@@ -6,15 +6,26 @@
 
         <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px" ref="menu">
 
-            <slot v-if="!dataItems.length">
+            <li v-if="search" @click.stop class="search-item">
+                <m-textfield label="Search..." v-model="searchText"></m-textfield>
+            </li>
+
+            <slot v-if="loading">
                 <div style="text-align: center; line-height: 40px;">
-                    <div class="mdl-spinner mdl-js-spinner is-active"></div> <span>Loading...</span>
+                    <span>Loading...</span>
+                    <m-progress indeterminate></m-progress>
                 </div>
             </slot>
 
-            <slot>
-                <li class="mdl-menu__item" v-for="option in dataItems" :disabled="value.value == option.value" @click="itemClick(option)">{{option.name}}</li>
+            <slot v-if="notFound">
+                <div style="text-align: center; line-height: 40px; opacity: .3">
+                    <span>Not found</span>
+                </div>
             </slot>
+
+
+
+            <li class="mdl-menu__item" v-for="option in dataItems" :disabled="value.value == option.value" @click="itemClick(option)">{{option.name}}</li>
         </ul>
     </div>
 </template>
@@ -24,6 +35,10 @@
         display: inline-block;
 
         width: 500px;
+
+        .search-item {
+            padding: 0 20px;;
+        }
 
         .mdl-menu__container {
             top:  10px !important;
@@ -39,6 +54,8 @@
     }
 </style>
 <script>
+    import { debounce, escapeRegExp } from '../utils';
+
     export default {
         props: {
             id: {
@@ -52,11 +69,15 @@
                 type: Object,
                 required: true,
             },
+
+            search: Boolean,
         },
 
         created () {
             if(typeof this.dataSource !== 'function') {
                 this.dataItems = this.dataSource;
+                this.dataItemsOriginal = this.dataSource;
+                this.loading = false;
             }
         },
 
@@ -77,14 +98,48 @@
         data() {
             return {
                 dataItems: [],
+                dataItemsOriginal: [],
                 wasOpen: false,
+                searchText: '',
+                loading: true,
+                notFound: false,
+            }
+        },
+
+        watch: {
+            searchText: function(newValue, oldValue) {
+                if(newValue != oldValue) {
+                    this._search(newValue, this);
+                }
             }
         },
 
         methods: {
+            _search: debounce(function(newValue, context) {
+               if(!newValue) {
+                    context.dataItems = context.dataItemsOriginal;
+                    context.notFound = false;
+               } else {
+                    let items = context.dataItemsOriginal.filter(el => {
+                        let reg = new RegExp(escapeRegExp(newValue), 'i');
+                        return reg.test(el.name);
+                    });
+
+                    context.notFound = !items.length;
+
+                    context.dataItems = items;
+               }
+
+               Vue.nextTick(() => {
+                    context.$menu.show();
+               });
+
+            }.bind(this), 300),
 
             _success(responseData) {
                 this.dataItems = responseData;
+                this.dataItemsOriginal = responseData;
+                this.loading = false;
                 this.$menu.hide();
                 Vue.nextTick(() => {
                     this.$menu.show();
@@ -92,8 +147,8 @@
             },
 
             _failure(reason) {
-                // TODO
-                console.log(reason);
+                // TODO: handle this
+                this.loading = false;
             },
 
             itemClick(option) {
@@ -109,7 +164,8 @@
             open(ev) {
                 if(!this.wasOpen && typeof this.dataSource === 'function') {
                     this.wasOpen = true;
-                    this.dataSource(this._success);
+                    this.loading = true;
+                    this.dataSource(this._success, this._failure);
                 }
 
 

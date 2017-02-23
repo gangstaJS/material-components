@@ -1,10 +1,10 @@
 export function genId() {
   return Math.random().toString(36).substring(7);
-};
+}
 
 export function genIdShort() {
   return Math.random().toString(36).substring(20);
-};
+}
 
 export function removeClass(obj, cls = '') {
   let classes = obj.className.split(' ');
@@ -17,7 +17,7 @@ export function removeClass(obj, cls = '') {
   }
   obj.className = classes.join(' ');
 
-};
+}
 
 
 export function getClosestVueParent($parent, cssClass) {
@@ -35,3 +35,21 @@ export function getClosestVueParent($parent, cssClass) {
 
   return getClosestVueParent($parent.$parent, cssClass);
 };
+
+export function debounce(fn = null, delay = 300) {
+  let timer = null;
+
+  return function(...args) {
+    clearInterval(timer);
+
+    let self = this;
+
+    timer = setTimeout(function() {
+      fn.apply(self, args);
+    }, delay);
+  }
+}
+
+export function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}

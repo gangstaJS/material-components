@@ -11,7 +11,7 @@
         <p>
 
             <h4>AJAX select</h4>
-            <m-select :data-source="testData" id="test1" v-model="m"></m-select>
+            <m-select :data-source="testData" id="test1" v-model="m" search></m-select>
 
             <div>{{m}}</div>
 
@@ -37,7 +37,7 @@
                             });
                         });
 
-                        setTimeout(() => { success(c.splice(0, 5)); }, 2000);
+                        setTimeout(() => { success(c.splice(0, 10)); }, 2000);
                    });
                 },
 

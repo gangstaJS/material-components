@@ -107,35 +107,30 @@
         },
 
         watch: {
-            searchText: function(newValue, oldValue) {
+            searchText: debounce(function(newValue, oldValue) {
                 if(newValue != oldValue) {
-                    this._search(newValue, this);
+                    if(!newValue) {
+                         this.dataItems = this.dataItemsOriginal;
+                         this.notFound = false;
+                    } else {
+                         let items = this.dataItemsOriginal.filter(el => {
+                             let reg = new RegExp(escapeRegExp(newValue), 'i');
+                             return reg.test(el.name);
+                         });
+
+                         this.notFound = !items.length;
+
+                         this.dataItems = items;
+                    }
+
+                    Vue.nextTick(() => {
+                         this.$menu.show();
+                    });
                 }
-            }
+            }, 200)
         },
 
         methods: {
-            _search: debounce(function(newValue, context) {
-               if(!newValue) {
-                    context.dataItems = context.dataItemsOriginal;
-                    context.notFound = false;
-               } else {
-                    let items = context.dataItemsOriginal.filter(el => {
-                        let reg = new RegExp(escapeRegExp(newValue), 'i');
-                        return reg.test(el.name);
-                    });
-
-                    context.notFound = !items.length;
-
-                    context.dataItems = items;
-               }
-
-               Vue.nextTick(() => {
-                    context.$menu.show();
-               });
-
-            }.bind(this), 300),
-
             _success(responseData) {
                 this.dataItems = responseData;
                 this.dataItemsOriginal = responseData;

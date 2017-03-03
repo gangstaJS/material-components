@@ -9,11 +9,34 @@
         </p>
 
         <p>
+        <h4>Array source (single)</h4>
+        <m-select :data-source="testData4" id="test10" v-model="m10"></m-select>
 
-            <h4>AJAX select</h4>
-            <m-select :data-source="testData" id="test1" v-model="m" search></m-select>
+        <div>{{m10}}</div>
+        </p>
+
+        <p>
+
+            <h4>AJAX select <span>{{m}}</span></h4>
+            <m-select :data-source="testData" id="test1" v-model="m" multiple></m-select>
 
             <div>{{m}}</div>
+
+        </p>
+
+        <p>
+
+        <h4>AJAX select with search <span>{{m5}}</span></h4>
+        <m-select :data-source="testData" id="test3" v-model="m5" search></m-select>
+
+        </p>
+
+        <p>
+
+        <h4>Multiple selecth <span>{{m6}}</span></h4>
+        <m-select :data-source="testData3" id="test4" v-model="m6" multiple></m-select>
+
+
 
         </p>
 
@@ -37,11 +60,11 @@
                             });
                         });
 
-                        setTimeout(() => { success(c.splice(0, 10)); }, 2000);
+                        success(c.splice(0, 10));
                    });
                 },
 
-                m: {name: '', value: null},
+                m: [],
 
                 // simple select
 
@@ -57,11 +80,21 @@
                     }
                 ],
 
-                m2: {name: '', value: null},
+                testData4: [1,2,3,4,5,6,7,8,9],
+                m10: 3,
+
+                m2: {name: 'NodeJs', value: 1},
+
+                m5: {name: '', value: ''},
+
+                m6: ['004', 100],
+
+                testData3: ['004','005', 100],
 
                 examples: `
                      <m-select :data-source="testData2" id="test2" v-model="m2"></m-select>
                      <m-select :data-source="testData" id="test1" v-model="m"></m-select>
+                     <m-select :data-source="testData" id="test3" v-model="m" search></m-select>
                 `
             }
         }

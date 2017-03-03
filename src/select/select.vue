@@ -7,7 +7,7 @@
         <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px" ref="menu">
 
             <li v-if="search" @click.stop class="search-item">
-                <m-textfield label="Search..." v-model="searchText"></m-textfield>
+                <m-textfield label="Search..." v-model="searchText" ref="searchField"></m-textfield>
             </li>
 
             <slot v-if="loading">
@@ -23,9 +23,7 @@
                 </div>
             </slot>
 
-
-
-            <li class="mdl-menu__item" v-for="option in dataItems" :disabled="value.value == option.value" @click="itemClick(option)">{{option.name}}</li>
+            <m-select-item :multiple="multiple" v-for="option in dataItems" :items="dataItems" :selected-items="value" :item-value="option"></m-select-item>
         </ul>
     </div>
 </template>
@@ -41,7 +39,7 @@
         }
 
         .mdl-menu__container {
-            top:  10px !important;
+            top:  8px !important;
         }
 
         .caret {
@@ -51,12 +49,21 @@
             font-size: 12px;
             opacity: .7;
         }
+
+        .mdl-checkbox {
+            line-height: normal;
+        }
     }
 </style>
 <script>
-    import { debounce, escapeRegExp } from '../utils';
+    import { debounce, escapeRegExp } from '../utils'
+    import MSelectItem from './selectItem.vue'
 
     export default {
+        components: {
+            MSelectItem
+        },
+
         props: {
             id: {
                 type: String,
@@ -66,18 +73,23 @@
                 type: [Array, Function],
             },
             value: {
-                type: Object,
+                type: [Array, Object, String, Number], // multiple value can be only Array
                 required: true,
             },
 
             search: Boolean,
+            multiple: Boolean,
         },
 
-        created () {
+        created() {
             if(typeof this.dataSource !== 'function') {
                 this.dataItems = this.dataSource;
                 this.dataItemsOriginal = this.dataSource;
                 this.loading = false;
+            }
+
+            if(this.multiple) {
+                this.selectedItems = [];
             }
         },
 
@@ -103,12 +115,13 @@
                 searchText: '',
                 loading: true,
                 notFound: false,
+                m: false,
             }
         },
 
         watch: {
             searchText: debounce(function(newValue, oldValue) {
-                if(newValue != oldValue) {
+                if(this.search && newValue != oldValue) {
                     if(!newValue) {
                          this.dataItems = this.dataItemsOriginal;
                          this.notFound = false;
@@ -123,9 +136,7 @@
                          this.dataItems = items;
                     }
 
-                    Vue.nextTick(() => {
-                         this.$menu.show();
-                    });
+                    this._recalculateMenuHeight();
                 }
             }, 200)
         },
@@ -141,12 +152,45 @@
                 });
             },
 
+            selectValue(val) {
+                if(this.multiple) {
+                   this.value.push(val);
+                } else {
+                    if(val && typeof val == 'object') {
+                        console.log(val);
+                        this.$emit('input', val);
+                    } else {
+                        this.$emit('input', val);
+                    }
+
+                    this.$menu.hide();
+                }
+            },
+
+            unselectValue(val) {
+                if(!this.multiple) return;
+
+                let index = this.value.indexOf(val);
+
+                if(index != -1) {
+                    this.value.splice(index, 1);
+                }
+            },
+
             _failure(reason) {
                 // TODO: handle this
                 this.loading = false;
             },
 
-            itemClick(option) {
+            _recalculateMenuHeight() {
+                Vue.nextTick(() => {
+                   let height = this.$refs.menu.MaterialMenu.element_.getBoundingClientRect().height;
+                   this.$refs.menu.MaterialMenu.container_.style.height = height + 'px';
+                   this.$refs.menu.MaterialMenu.outline_.style.height = height + 'px';
+                });
+            },
+
+            itemClick(ev, option) {
                 this.value.name = option.name;
                 this.value.value = option.value;
 
@@ -161,6 +205,12 @@
                     this.wasOpen = true;
                     this.loading = true;
                     this.dataSource(this._success, this._failure);
+                }
+
+                if(this.search) {
+                    setTimeout(() => {
+                        this.$refs.searchField.$el.MaterialTextfield.input_.focus();
+                    }, 100);
                 }
 
 

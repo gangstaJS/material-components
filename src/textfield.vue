@@ -9,8 +9,8 @@
         <div :class="{'mdl-textfield__expandable-holder': expandable}">
 
             <slot v-if="textarea" name="textarea">
-        <textarea class="mdl-textfield__input" ref="focusTarget" type="text" :value="value" @input="fireInputEvent" :required="required" :id="id" :rows="rows" :maxlength="maxlength">
-        </textarea>
+                <textarea class="mdl-textfield__input" ref="focusTarget" type="text" :value="value" @input="fireInputEvent" :required="required" :id="id" :rows="rows" :maxlength="maxlength">
+                </textarea>
             </slot>
 
             <slot v-else="v-else" name="input">
@@ -108,7 +108,7 @@ export default {
     }
   },
   mounted() {
-    componentHandler.upgradeElement(this.$el)
+    componentHandler.upgradeElement(this.$el, 'MaterialTextfield')
   }
 }
 </script>

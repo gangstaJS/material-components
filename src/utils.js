@@ -53,3 +53,19 @@ export function debounce(fn = null, delay = 300) {
 export function escapeRegExp(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
+
+export function prepareOptionValue(val, tryFromName = false) {
+  if(val && (typeof val == 'string') || (typeof val == 'number')) {
+    return val;
+  } else if(val && typeof val == 'object') {
+    if(tryFromName) {
+      return val.name || val.value;
+    }
+
+    return val.value;
+    
+  } else {
+    console.err('Invalid type of item, must be String, Number or Object');
+    return null;
+  }
+}

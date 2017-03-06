@@ -18,10 +18,36 @@
 
     <hr>
 
-    <div>
-      <div>Code:</div>
-      <textarea cols="100" rows="6" :value="examples"></textarea>
-    </div>
+    <pre v-pre>
+      <code class="html">
+&#x3C;template&#x3E;
+  &#x3C;div&#x3E;
+    &#x3C;m-badge v-model=&#x22;b&#x22; href=&#x22;https://google.com&#x22; :hide=&#x22;h&#x22;&#x3E;Inbox&#x3C;/m-badge&#x3E;
+
+    &#x3C;m-badge v-model=&#x22;b&#x22; tag=&#x22;span&#x22; icon overlap&#x3E;account_box&#x3C;/m-badge&#x3E;
+
+    &#x3C;m-slider v-model=&#x22;b&#x22; min=&#x22;0&#x22; max=&#x22;100&#x22;&#x3E;&#x3C;/m-slider&#x3E;
+
+    &#x3C;m-button raised v-on:click.native=&#x22;testClick&#x22;&#x3E;Hide badge value&#x3C;/m-button&#x3E;
+
+  &#x3C;/div&#x3E;
+&#x3C;/template&#x3E;
+
+&#x3C;script&#x3E;
+  export default {
+    data() {
+      return {
+        b: 10,
+        h: false,
+        testClick: function(e) {
+          this.h = !this.h;
+        }
+      }
+    }
+  }
+&#x3C;/script&#x3E;
+      </code>
+    </pre>
   </div>
 </template>
 
@@ -33,11 +59,7 @@
         h: false,
         testClick: function(e) {
           this.h = !this.h;
-        },
-        examples: `
-          <m-badge v-model="b" href="https://google.com" :hide="h">Inbox</m-badge>
-          <m-badge v-model="b" tag="span" icon overlap>account_box</m-badge>
-        `
+        }
       }
     }
   }

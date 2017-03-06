@@ -1,8 +1,29 @@
 <template>
+    <transition
+            v-if="animation"
+            @leave="leave"
+            @after-leave="afterLeave"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @enter-cancelled="enterCanceled"
+            @leave-cancelled="leaveCanceled">
+
+        <div
+            v-show="selected"
+            class="mdl-tabs__panel"
+            :class="{'mdl-tabs__panel--for-animation': animation, 'enter': classEnter, 'before-enter': classBeforeEnter, 'leave': classLeave}">
+
+            <slot></slot>
+        </div>
+    </transition>
+
     <div
+         v-else
          class="mdl-tabs__panel"
-         :class="{'is-active': selected, 'tab-enter': classEnter, 'tab-exit': classExit, 'mdl-tabs__panel--for-animation': animation}">
-        <slot></slot>
+         :class="{'is-active': selected}">
+
+     <slot></slot>
     </div>
 </template>
 
@@ -11,13 +32,14 @@
         &__panel {
             &--for-animation {
                 position: absolute;
-                display: none;
+                display: block;
                 left: 0;
                 right: 0;
                 top: 0;
                 bottom: 0;
                 z-index: -1;
                 overflow: auto;
+                transition: all .3s;
             }
         }
     }
@@ -68,26 +90,47 @@ export default {
   data() {
     return {
         classEnter: false,
-        classExit: false,
+        classBeforeEnter: false,
+        current: false,
+        classLeave: false,
     }
   },
 
   methods: {
-    addEnter() {
-    	this.classEnter = true;
+
+    beforeEnter() {
+    	this.classBeforeEnter = true;
+    	console.log('before enter')
     },
 
-    rmEnter() {
-    	this.classEnter = false;
+  	enter(el) {
+      setTimeout(() => this.classEnter = true, 10);
+      //this.classEnter = true
+      console.log('enter');
     },
 
-    addExit() {
-    	this.classExit = true;
+    afterEnter() {
+      this.classEnter = false;
+      this.classBeforeEnter = false;
     },
 
-    rmExit() {
-    	this.classExit = false;
-    }
+    leave(el) {
+      //this.current = false;
+      this.classLeave = true;
+    },
+
+    afterLeave(el) {
+      this.classLeave = false;
+    },
+
+    enterCanceled() {
+      this.classEnter = false;
+      this.classBeforeEnter = false;
+    },
+
+    leaveCanceled() {
+    	this.classLeave = false;
+    },
   }
 }
 

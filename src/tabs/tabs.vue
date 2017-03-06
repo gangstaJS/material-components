@@ -23,6 +23,28 @@
             .mdl-tabs__tab-wrapper {
                 position: relative;
             }
+
+            .before-enter {
+                transform: translateX(-100%);
+            }
+
+            .enter {
+                transform: translateX(0%);
+            }
+
+            .leave {
+                transform: translateX(100%);
+                z-index: 2;
+                display: block;
+            }
+        }
+
+        &.is-upgraded {
+            &.mdl-tabs--for-animation {
+                .mdl-tabs__panel {
+                    display: block;
+                }
+            }
         }
 
         .is-active {
@@ -31,28 +53,30 @@
 
         // animations
 
-        .tab-exit {
-            transform: translateX(0%);
-        }
+        //.tab-exit {
+        //    transform: translateX(0%);
+        //}
 
-        .tab-enter {
-            display: block !important; // 'important' is need for rewrite mdl style
-            z-index: 2;
-            transform: translateX(-100%);
-        }
+        //.tab-enter {
+        //    display: block !important; // 'important' is need for rewrite mdl style
+        //    z-index: 2;
+        //    transform: translateX(-100%);
+        //}
 
         &.tabs-animating {
-            .tab-exit, .tab-enter {
-                transition: all .3s ease-in-out;
-            }
+            //.tab-exit, .tab-enter {
+            //    transition: all .3s ease-in-out;
+            //}
 
-            .tab-enter {
-                transform: translateX(0%);
-            }
+            //.tab-enter {
+             //   transform: translateX(0%);
+            //}
 
-            .tab-exit {
-                transform: translateX(100%);
-            }
+            //.tab-exit {
+            //    transform: translateX(100%);
+            //}
+
+
         }
 
     }
@@ -87,24 +111,26 @@ export default {
   methods: {
     selectTab({id}) {
         if(this.animation) {
-            let exitTab = this.getExitTab();
-            let enterTab = this.getEnterTab(id);
+            //let exitTab = this.getExitTab();
+            //let enterTab = this.getEnterTab(id);
+//
+            //if(this.isAnimating || (this.prepareTabKey(enterTab.tab) == this.value)) return; // TODO: add the same click check
+//
+            //exitTab.addExit();
+            //enterTab.addEnter();
+//
+            //setTimeout(() => this.isAnimating = true, 0);
+//
+            //setTimeout(() => {
+      	    //    this.isAnimating = false;
+//
+            //    exitTab.rmExit();
+      	    //    enterTab.rmEnter();
+//
+      	    //    this.$emit('input', id)
+            //}, 300);
 
-            if(this.isAnimating || (this.prepareTabKey(enterTab.tab) == this.value)) return; // TODO: add the same click check
-
-            exitTab.addExit();
-            enterTab.addEnter();
-
-            setTimeout(() => this.isAnimating = true, 0);
-
-            setTimeout(() => {
-      	        this.isAnimating = false;
-
-                exitTab.rmExit();
-      	        enterTab.rmEnter();
-
-      	        this.$emit('input', id)
-            }, 300);
+            this.$emit('input', id)
         } else {
             this.$emit('input', id)
         }

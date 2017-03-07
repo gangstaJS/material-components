@@ -105,7 +105,6 @@
             _value() {
                 let val = 'Select...';
 
-
                 if(this.multiple && this.value.length) {
                     let _i = [];
 
@@ -147,11 +146,10 @@
                     } else {
                          let items = this.dataItemsOriginal.filter(el => {
                              let reg = new RegExp(escapeRegExp(newValue), 'i');
-                             return reg.test(el.name);
+                             return reg.test(prepareOptionValue(el, true));
                          });
 
                          this.notFound = !items.length;
-
                          this.dataItems = items;
                     }
 

@@ -17,6 +17,14 @@
             this._checkPreSelected();
         },
 
+        watch: {
+            items(n, o) {
+                if(n != o) {
+                    this._checkPreSelected();
+                }
+            }
+        },
+
         props: {
             itemValue: {
                 type: [String, Number, Object],
@@ -69,14 +77,18 @@
             _checkPreSelected() {
                 if(this.multiple && this.selectedItems instanceof Array) {
                     for(let el of this.selectedItems) {
-                        if(el && typeof el == 'object' && el.value === prepareOptionValue(this.itemValue)) {
+                        if(el && (typeof el == 'object') && (el.value === prepareOptionValue(this.itemValue))) {
                             this.checked = true;
                             break;
                         } else if(el === prepareOptionValue(this.itemValue)) {
                             this.checked = true;
                             break;
+                        } else {
+                            this.checked = false;
                         }
                     }
+
+
                 }
             }
         },

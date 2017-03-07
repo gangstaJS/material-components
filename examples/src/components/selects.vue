@@ -10,7 +10,7 @@
 
         <p>
         <h4>Array source (single)</h4>
-        <m-select :data-source="testData4" id="test10" v-model="m10"></m-select>
+        <m-select :data-source="testData4" id="test10" v-model="m10" search></m-select>
 
         <div>{{m10}}</div>
         </p>
@@ -34,7 +34,7 @@
         <p>
 
         <h4>Multiple selecth <span>{{m6}}</span></h4>
-        <m-select :data-source="testData3" id="test4" v-model="m6" multiple></m-select>
+        <m-select :data-source="testData3" id="test4" v-model="m6" multiple search></m-select>
 
 
 

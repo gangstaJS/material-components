@@ -56,7 +56,6 @@ export default {
 
   mounted () {
     this.$parent.addTab(this.tabData)
-    this.$parent.addTabComponent(this);
   },
 
   beforeDestroy () {
@@ -100,13 +99,10 @@ export default {
 
     beforeEnter() {
     	this.classBeforeEnter = true;
-    	console.log('before enter')
     },
 
   	enter(el) {
       setTimeout(() => this.classEnter = true, 10);
-      //this.classEnter = true
-      console.log('enter');
     },
 
     afterEnter() {
@@ -115,7 +111,6 @@ export default {
     },
 
     leave(el) {
-      //this.current = false;
       this.classLeave = true;
     },
 
@@ -129,7 +124,7 @@ export default {
     },
 
     leaveCanceled() {
-    	this.classLeave = false;
+      this.classLeave = false;
     },
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="oz-select-container">
         <div class="mdl-textfield mdl-js-textfield" @click="open">
-            <input type="text" readonly="true" :value="_value.name" :id="id" class="mdl-textfield__input"> <span class="caret">▼</span>
+            <input type="text" readonly="true" :value="_value" :id="id" class="mdl-textfield__input mdl-textfield__input--oz-select"> <span class="caret">▼</span>
         </div>
 
         <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" :for="id" style="width: 300px" ref="menu">
@@ -34,6 +34,14 @@
 
         width: 500px;
 
+        .mdl-textfield__input {
+            &--oz-select {
+                padding: 4px 20px 4px 4px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
         .search-item {
             padding: 0 20px;;
         }
@@ -45,7 +53,7 @@
         .caret {
             position: absolute;
             top: 25px;
-            right: 10px;
+            right: -20px;
             font-size: 12px;
             opacity: .7;
         }
@@ -56,7 +64,7 @@
     }
 </style>
 <script>
-    import { debounce, escapeRegExp } from '../utils'
+    import { debounce, escapeRegExp, prepareOptionValue } from '../utils'
     import MSelectItem from './selectItem.vue'
 
     export default {
@@ -95,12 +103,23 @@
 
         computed: {
             _value() {
-                let val = {name: 'Select...', value: null};
+                let val = 'Select...';
 
-                if(this.value.value) {
-                    let res = this.dataItems.find(el => el.value == this.value.value);
 
-                    if(res) val = res;
+                if(this.multiple && this.value.length) {
+                    let _i = [];
+
+                    this.value.forEach(v => {
+                        _i.push(prepareOptionValue(v, true));
+                    });
+
+                    val = _i.join();
+                } else {
+                    let _i = prepareOptionValue(this.value, true);
+
+                    if(_i) {
+                        val = _i;
+                    }
                 }
 
                 return val;

@@ -51,34 +51,6 @@
             z-index: 2;
         }
 
-        // animations
-
-        //.tab-exit {
-        //    transform: translateX(0%);
-        //}
-
-        //.tab-enter {
-        //    display: block !important; // 'important' is need for rewrite mdl style
-        //    z-index: 2;
-        //    transform: translateX(-100%);
-        //}
-
-        &.tabs-animating {
-            //.tab-exit, .tab-enter {
-            //    transition: all .3s ease-in-out;
-            //}
-
-            //.tab-enter {
-             //   transform: translateX(0%);
-            //}
-
-            //.tab-exit {
-            //    transform: translateX(100%);
-            //}
-
-
-        }
-
     }
 </style>
 
@@ -110,46 +82,7 @@ export default {
 
   methods: {
     selectTab({id}) {
-        if(this.animation) {
-            //let exitTab = this.getExitTab();
-            //let enterTab = this.getEnterTab(id);
-//
-            //if(this.isAnimating || (this.prepareTabKey(enterTab.tab) == this.value)) return; // TODO: add the same click check
-//
-            //exitTab.addExit();
-            //enterTab.addEnter();
-//
-            //setTimeout(() => this.isAnimating = true, 0);
-//
-            //setTimeout(() => {
-      	    //    this.isAnimating = false;
-//
-            //    exitTab.rmExit();
-      	    //    enterTab.rmEnter();
-//
-      	    //    this.$emit('input', id)
-            //}, 300);
-
-            this.$emit('input', id)
-        } else {
-            this.$emit('input', id)
-        }
-    },
-
-    addTabComponent(tabComponent) {
-        this.tabComponents.push(tabComponent);
-    },
-
-    getExitTab() {
-        return this.tabComponents.find(c => this.prepareTabKey(c.tab) == this.value);
-    },
-
-    getEnterTab(id) {
-        return this.tabComponents.find(c => this.prepareTabKey(c.tab) == id);
-    },
-
-    prepareTabKey(tab) {
-        return typeof tab == 'string' ? tab : tab.id;
+        this.$emit('input', id);
     },
 
     isSelected({id}) {
@@ -175,7 +108,6 @@ export default {
     return {
       tabs: [],
       isAnimating: false,
-      tabComponents: [],
     }
   },
 

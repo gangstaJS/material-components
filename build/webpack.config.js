@@ -90,18 +90,34 @@ const wpConfig = {
 };
 
 
-if(process.env.NODE_ENV != 'production') {
-  wpConfig.debug = true;
-  wpConfig.devtool = "#inline-source-map";
-  // open('http://localhost:9095/examples')
-} else {
-  wpConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: false, output: { comments: false }}));
-  wpConfig.plugins.push(
-    new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: '"production"'
+if(process.env.NODE_ENV === 'production') {
+  wpConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    sourceMap: false,
+    output: {
+      comments: false ,
+    },
+    compress: {
+      warnings: false,
     }
   }));
+
+  wpConfig.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }));
+
+} else {
+  wpConfig.debug = true;
+  wpConfig.devtool = "#inline-source-map";
+
+  wpConfig.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }));
 }
 
 module.exports = wpConfig;

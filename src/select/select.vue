@@ -43,7 +43,8 @@
         }
 
         .search-item {
-            padding: 0 20px;;
+            padding: 0 20px;
+            margin-top: -15px;
         }
 
         .mdl-menu__container {

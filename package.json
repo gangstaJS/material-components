@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --bail --progress --hide-modules --config build/webpack.config.js",
+    "build:prod": "export NODE_ENV=production&& webpack --bail --progress --hide-modules --config build/webpack.config.js",
     "build:examples": "webpack --bail --progress --hide-modules --config build/webpack.examples.js",
     "start": "webpack-dev-server --inline --compress --hide-modules --output-public-path='dist/' --config build/webpack.config.js"
   },

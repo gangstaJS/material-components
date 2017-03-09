@@ -90,10 +90,12 @@ const wpConfig = {
 };
 
 
-if(process.env.NODE_ENV != 'STAGE') {
+if(process.env.NODE_ENV != 'production') {
   wpConfig.debug = true;
   wpConfig.devtool = "#inline-source-map";
-  // open('http://localhost:9095/examples');
+  // open('http://localhost:9095/examples')
+} else {
+  wpConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: false, output: { comments: false }}));
 }
 
 module.exports = wpConfig;

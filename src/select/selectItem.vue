@@ -87,8 +87,6 @@
                             this.checked = false;
                         }
                     }
-
-
                 }
             }
         },

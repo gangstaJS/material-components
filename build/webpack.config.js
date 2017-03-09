@@ -96,6 +96,12 @@ if(process.env.NODE_ENV != 'production') {
   // open('http://localhost:9095/examples')
 } else {
   wpConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({sourceMap: false, output: { comments: false }}));
+  wpConfig.plugins.push(
+    new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: '"production"'
+    }
+  }));
 }
 
 module.exports = wpConfig;

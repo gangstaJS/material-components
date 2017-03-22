@@ -17,9 +17,6 @@ export default {
     colored: Boolean,
     icon: [String, Boolean],
     accent: Boolean,
-    miniFab: Boolean,
-    fab: Boolean,
-    raised: Boolean,
     primary: Boolean,
   },
   computed: {

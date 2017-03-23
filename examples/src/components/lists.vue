@@ -9,8 +9,15 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples1"></textarea>
+            <pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-item&#x22;&#x3E;
+                        &#x3C;m-list-item&#x3E;Bryan Cranston&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item&#x3E;Aaron Paul&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item&#x3E;Bob Odenkirk&#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
 
         <hr>
@@ -22,8 +29,15 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples2"></textarea>
+            <pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-item&#x22;&#x3E;
+                        &#x3C;m-list-item icon=&#x22;person&#x22;&#x3E;Bryan Cranston&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item icon=&#x22;person&#x22;&#x3E;Aaron Paul&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item icon=&#x22;person&#x22;&#x3E;Bob Odenkirk&#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
 
         <hr>
@@ -35,8 +49,15 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples3"></textarea>
+            <pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-item&#x22;&#x3E;
+                        &#x3C;m-list-item icon-avatar=&#x22;person&#x22;&#x3E;Bryan Cranston&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item icon-avatar=&#x22;person&#x22;&#x3E;Aaron Paul&#x3C;/m-list-item&#x3E;
+                        &#x3C;m-list-item icon-avatar=&#x22;person&#x22;&#x3E;Bob Odenkirk&#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
 
         <hr>
@@ -52,8 +73,19 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples4"></textarea>
+            <pre v-pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-item&#x22;&#x3E;
+                        &#x3C;m-list-item icon-avatar=&#x22;person&#x22; v-for=&#x22;person in people&#x22;&#x3E;
+                            {{person.name}}
+
+                            &#x3C;template slot=&#x22;action&#x22;&#x3E;
+                                &#x3C;m-switch v-model=&#x22;person.on&#x22;&#x3E;&#x3C;/m-switch&#x3E;
+                            &#x3C;/template&#x3E;
+                        &#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
 
         <hr>
@@ -71,8 +103,21 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples5"></textarea>
+            <pre v-pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-item&#x22;&#x3E;
+                         &#x3C;m-list-item icon-avatar=&#x22;person&#x22; v-for=&#x22;person in people&#x22; :sub-title=&#x22;person.sub&#x22;&#x3E;
+                            {{person.name}}
+
+                            &#x3C;template slot=&#x22;action&#x22;&#x3E;
+                                &#x3C;a class=&#x22;mdl-list__item-secondary-action&#x22; href=&#x22;#&#x22;&#x3E;
+                                    &#x3C;i class=&#x22;material-icons&#x22;&#x3E;star&#x3C;/i&#x3E;
+                                &#x3C;/a&#x3E;
+                            &#x3C;/template&#x3E;
+                        &#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
 
         <hr>
@@ -90,9 +135,40 @@
         </m-list>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="110" rows="10" :value="examples6"></textarea>
+            <pre v-pre>
+                <code class="html">
+                    &#x3C;m-list class=&#x22;demo-list-three&#x22;&#x3E;
+                        &#x3C;m-list-item icon-avatar=&#x22;person&#x22; v-for=&#x22;person in people&#x22; :text=&#x22;person.text&#x22;&#x3E;
+                            {{person.name}}
+
+                            &#x3C;template slot=&#x22;action&#x22;&#x3E;
+                                &#x3C;a class=&#x22;mdl-list__item-secondary-action&#x22; href=&#x22;#&#x22;&#x3E;
+                                    &#x3C;i class=&#x22;material-icons&#x22;&#x3E;star&#x3C;/i&#x3E;
+                                &#x3C;/a&#x3E;
+                            &#x3C;/template&#x3E;
+                        &#x3C;/m-list-item&#x3E;
+                    &#x3C;/m-list&#x3E;
+                </code>
+            </pre>
         </div>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
     </div>
 </template>
 
@@ -109,6 +185,9 @@
 <script>
     export default{
         methods: {
+        },
+        mounted() {
+            this.$el.querySelectorAll('.html').forEach(el => hljs.highlightBlock(el))
         },
         data(){
             return {
@@ -131,65 +210,7 @@
                         text: 'Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the character, Bob stars in his own show now, called "Better Call Saul".',
                         sub: '32 Episodes',
                     },
-                ],
-                examples1: `
-                    <m-list class="demo-list-item">
-                        <m-list-item>Bryan Cranston</m-list-item>
-                        <m-list-item>Aaron Paul</m-list-item>
-                        <m-list-item>Bob Odenkirk</m-list-item>
-                    </m-list>
-                `,
-                examples2: `
-                    <m-list class="demo-list-item">
-                        <m-list-item icon="person">Bryan Cranston</m-list-item>
-                        <m-list-item icon="person">Aaron Paul</m-list-item>
-                        <m-list-item icon="person">Bob Odenkirk</m-list-item>
-                    </m-list>
-                `,
-                examples3: `
-                    <m-list class="demo-list-item">
-                        <m-list-item icon-avatar="person">Bryan Cranston</m-list-item>
-                        <m-list-item icon-avatar="person">Aaron Paul</m-list-item>
-                        <m-list-item icon-avatar="person">Bob Odenkirk</m-list-item>
-                    </m-list>
-                `,
-                examples4: `
-                    <m-list class="demo-list-item">
-                        <m-list-item icon-avatar="person" v-for="person in people">
-                            {{person.name}}
-
-                            <template slot="action">
-                                <m-switch v-model="person.on"></m-switch>
-                            </template>
-                        </m-list-item>
-                    </m-list>
-                `,
-                examples5: `
-                    <m-list class="demo-list-item">
-                         <m-list-item icon-avatar="person" v-for="person in people" :sub-title="person.sub">
-                            {{person.name}}
-
-                            <template slot="action">
-                                <a class="mdl-list__item-secondary-action" href="#">
-                                    <i class="material-icons">star</i>
-                                </a>
-                            </template>
-                        </m-list-item>
-                    </m-list>
-                `,
-                examples6: `
-                    <m-list class="demo-list-three">
-                        <m-list-item icon-avatar="person" v-for="person in people" :text="person.text">
-                            {{person.name}}
-
-                            <template slot="action">
-                                <a class="mdl-list__item-secondary-action" href="#">
-                                    <i class="material-icons">star</i>
-                                </a>
-                            </template>
-                        </m-list-item>
-                    </m-list>
-                `,
+                ]
             }
         }
     }

@@ -46,6 +46,9 @@
 </template>
 <script>
     export default{
+        mounted() {
+            hljs.highlightBlock(this.$el.querySelector('.html'));
+        },
         data(){
             return {
                 doc: [

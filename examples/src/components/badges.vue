@@ -48,6 +48,24 @@
 &#x3C;/script&#x3E;
       </code>
     </pre>
+
+    <m-table style="width: 100%">
+      <m-table-head>
+        <m-table-row>
+          <m-table-h>Prop</m-table-h>
+          <m-table-h>Effect</m-table-h>
+          <m-table-h>Remarks</m-table-h>
+        </m-table-row>
+      </m-table-head>
+
+      <m-table-body>
+        <m-table-row v-for="prop in doc">
+          <m-table-cell>{{prop.name}}</m-table-cell>
+          <m-table-cell>{{prop.description}}</m-table-cell>
+          <m-table-cell>{{prop.remark}}</m-table-cell>
+        </m-table-row>
+      </m-table-body>
+    </m-table>
   </div>
 </template>
 
@@ -59,7 +77,15 @@
         h: false,
         testClick: function(e) {
           this.h = !this.h;
-        }
+        },
+
+        doc: [
+          {name: 'overlap', description: 'Make the badge overlap with its container', remark: 'Optional'},
+          {name: 'icon', description: 'You can pass the icon you want to display as a string', remark: ''},
+          {name: 'no-background', description: 'Applies open-circle effect to badge', remark: 'Optional'},
+          {name: 'hide', description: 'Hides the badge', remark: 'Can be bound to a computed property so the value is hidden if some conditions are met.'},
+          {name: 'href', description: 'Href attribute for link badge', remark: 'Optional'}
+        ]
       }
     }
   }

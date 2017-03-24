@@ -13,9 +13,14 @@
             <br>
 
             <div>
-                <div>Code:</div>
-                    <textarea cols="100" rows="6" :value="examples">
-                    </textarea>
+                <pre v-pre>
+                    <code class="html">
+                &#x3C;m-textfield label=&#x22;Text...&#x22;&#x3E;&#x3C;/m-textfield&#x3E;
+                &#x3C;m-textfield float-label=&#x22;Textarea...&#x22; textarea&#x3E;&#x3C;/m-textfield&#x3E;
+                &#x3C;m-textfield label=&#x22;Number...&#x22; pattern=&#x22;-?[0-9]*(\.[0-9]+)?&#x22; error=&#x22;Invalid input&#x22;&#x3E;&#x3C;/m-textfield&#x3E;
+                &#x3C;m-textfield expandable=&#x22;search&#x22; id=&#x22;test-id-search&#x22; float-label=&#x22;Expanding...&#x22;&#x3E;&#x3C;/m-textfield&#x3E;
+                    </code>
+                </pre>
             </div>
         </div>
 
@@ -40,19 +45,34 @@
 
             <div>{{form}}</div>
         </div>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
     </div>
 </template>
 
 <script>
 export default {
+    mounted() {
+       this.$el.querySelectorAll('.html').forEach(el => hljs.highlightBlock(el))
+    },
     data() {
         return {
-            examples: `
-                <m-textfield label="Text..."></m-textfield>
-                <m-textfield float-label="Textarea..." textarea></m-textfield>
-                <m-textfield label="Number..." pattern="-?[0-9]*(\.[0-9]+)?" error="Invalid input"></m-textfield>
-                <m-textfield expandable="search" id="test-id-search" float-label="Expanding..."></m-textfield>
-            `,
             form: {
                 firstName: '',
                 lastName: '',

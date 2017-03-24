@@ -41,13 +41,40 @@
         </p>
 
         <div>
-            <div>Code:</div>
-            <textarea cols="100" rows="6" :value="examples"></textarea>
+            <pre v-pre>
+                <code class="html">
+                &#x3C;m-select :data-source=&#x22;testData2&#x22; id=&#x22;test2&#x22; v-model=&#x22;m2&#x22;&#x3E;&#x3C;/m-select&#x3E;
+                &#x3C;m-select :data-source=&#x22;testData&#x22; id=&#x22;test1&#x22; v-model=&#x22;m&#x22;&#x3E;&#x3C;/m-select&#x3E;
+                &#x3C;m-select :data-source=&#x22;testData&#x22; id=&#x22;test3&#x22; v-model=&#x22;m&#x22; search&#x3E;&#x3C;/m-select&#x3E;
+                </code>
+            </pre>
         </div>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
     </div>
 </template>
 <script>
     export default {
+        mounted() {
+            this.$el.querySelectorAll('.html').forEach(el => hljs.highlightBlock(el))
+        },
+
         data(){
             return {
                 testData:  function(success, failure) {
@@ -90,12 +117,6 @@
                 m6: ['004', 100],
 
                 testData3: ['004','005', 100],
-
-                examples: `
-                     <m-select :data-source="testData2" id="test2" v-model="m2"></m-select>
-                     <m-select :data-source="testData" id="test1" v-model="m"></m-select>
-                     <m-select :data-source="testData" id="test3" v-model="m" search></m-select>
-                `
             }
         }
     }

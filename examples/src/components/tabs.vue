@@ -119,11 +119,35 @@
 
             </code>
         </pre>
+
+        <br>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                    <m-table-cell></m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
     </div>
 </template>
 
 <script>
     export default{
+        mounted() {
+            this.$el.querySelectorAll('.html').forEach(el => hljs.highlightBlock(el))
+        },
+
         data(){
             return {
                 currentTub: 'tab-1',

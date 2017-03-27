@@ -54,10 +54,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -97,7 +97,13 @@
         data(){
             return {
                 doc: [
-
+                    {name: 'title', description: 'Defines card\'s title', remark: ''},
+                    {name: 'actions', description: 'Makes the actions section visible', remark: 'You must set it to a non empty string in order to make it work'},
+                    {name: 'supporting-text', description: 'Defines card\'s supporting text', remark: ''},
+                    {name: 'actions-text', description: 'Defines the actions section button\'s text', remark: ''},
+                    {name: 'menu', description: 'Defines element as top right menu button', remark: ''},
+                    {name: 'subtitle', description: 'Assigns text characteristics to a card subtitle', remark: ''},
+                    {name: 'media', description: 'Defines src url for a card media background', remark: ''},
                 ]
             }
         }

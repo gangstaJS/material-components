@@ -32,10 +32,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -63,6 +63,11 @@
         data(){
             return {
                 showChip: true,
+                doc: [
+                    {name: 'contact-image', description: 'src attributes\' value for a contact image', remark: ''},
+                    {name: 'delete-icon', description: '', remark: 'Optional'},
+                    {name: 'contact', description: 'Defines element as the chip\'s text', remark: ''},
+                ]
             }
         }
     }

@@ -60,10 +60,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -117,6 +117,10 @@
                 m6: ['004', 100],
 
                 testData3: ['004','005', 100],
+
+                doc: [
+                    {name: '', description: '', remark: ''}
+                ]
             }
         }
     }

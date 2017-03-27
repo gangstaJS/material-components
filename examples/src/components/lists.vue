@@ -162,10 +162,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -210,6 +210,13 @@
                         text: 'Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the character, Bob stars in his own show now, called "Better Call Saul".',
                         sub: '32 Episodes',
                     },
+                ],
+
+                doc: [
+                    {name: 'icon', description: 'A icon for a list item', title: 'Optional'},
+                    {name: 'icon-avatar', description: 'A big icon avatar for la list item', title: 'Optional'},
+                    {name: 'text', description: 'A description text for a list item', title: 'Optional'},
+                    {name: 'sub-title', description: 'Subtitle text for a list item', title: 'Optional'},
                 ]
             }
         }

@@ -32,6 +32,24 @@
             </pre>
         </div>
 
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
+
         <h3>Spinner</h3>
 
         <div>
@@ -73,10 +91,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in docSpinners">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -95,6 +113,17 @@
                 progress2: 30,
                 buffer: 60,
                 active: false,
+
+                doc: [
+                    {name: 'v-model', description: 'A value of a progress', remark: ''},
+                    {name: 'indeterminate', description: 'Applies animation effect', remark: ''},
+                    {name: 'buffer', description: 'Buffering', remark: ''},
+                ],
+
+                docSpinners: [
+                    {name: 'single-color', description: 'Uses a single (primary palette) color instead of changing colors', remark: ''},
+                    {name: 'active', description: 'true|false', remark: ''},
+                ],
             }
         }
     }

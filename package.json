@@ -1,8 +1,8 @@
 {
-  "name": "material-components",
+  "name": "milo-material-components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/lib.build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --bail --progress --hide-modules --config build/webpack.config.js",

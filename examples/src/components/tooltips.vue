@@ -66,10 +66,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -84,6 +84,14 @@
 
         data(){
             return {
+                doc: [
+                    {name: 'target', description: 'id of another item. The tooltip is binded to the item with the specified id', remark: 'Required'},
+                    {name: 'large', description: 'Makes the tooltip bigger', remark: ''},
+                    {name: 'left', description: '', remark: ''},
+                    {name: 'right', description: '', remark: ''},
+                    {name: 'top', description: '', remark: ''},
+                    {name: 'bottom', description: '', remark: ''},
+                ]
             }
         }
     }

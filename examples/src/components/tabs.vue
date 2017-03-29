@@ -132,10 +132,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -152,6 +152,14 @@
             return {
                 currentTub: 'tab-1',
                 currentTub2: 'Tab 2',
+
+                doc: [
+                    {name: 'v-model', description: 'Current tab. It should use with m-tabs component', remark: ''},
+                    {name: 'tab', description: 'Tab init object with params: title, id', remark: ''},
+                    {name: 'no-ripple-effect', description: 'Disable ripple effect for tabs controls. It should use with m-tabs component', remark: ''},
+                    {name: 'animation', description: 'Enable animation effect: true | false. It should use with m-tabs component', remark: ''},
+                    {name: 'content-style', description: 'Style attribute params for a tabs container, It should use with m-tabs component', remark: ''},
+                ]
             }
         }
     }

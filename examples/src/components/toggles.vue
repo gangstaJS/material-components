@@ -23,6 +23,24 @@
             </pre>
         </div>
 
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row v-for="prop in docCheckboxes">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
+
 
         <h4>Radio</h4>
         <m-radio name="test" v-model="radioVal" val="one">Test 1</m-radio>
@@ -40,6 +58,24 @@
                 </code>
             </pre>
         </div>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row v-for="prop in docRadio">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
 
 
         <h4>Switch</h4>
@@ -66,6 +102,24 @@
                 </code>
             </pre>
         </div>
+
+        <m-table style="width: 100%">
+            <m-table-head>
+                <m-table-row>
+                    <m-table-h>Prop</m-table-h>
+                    <m-table-h>Effect</m-table-h>
+                    <m-table-h>Remarks</m-table-h>
+                </m-table-row>
+            </m-table-head>
+
+            <m-table-body>
+                <m-table-row v-for="prop in docSwitch">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
+                </m-table-row>
+            </m-table-body>
+        </m-table>
 
 
         <h4>Icon Taggle</h4>
@@ -102,10 +156,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in docIcon">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -135,6 +189,36 @@
 
                 iToggle: true,
                 iToggle2: false,
+
+                docCheckboxes: [
+                    {name: 'disabled', description: 'Disables the checkbox. Adds the is-disabled class to the button', remark: ''},
+                    {name: 'checked', description: 'Control whether the checkbox is checked or not', remark: 'You must use a two way binding. You can either use a boolean or an array'},
+                    {name: 'id', description: 'Defines the id used to link the label and the input', remark: ''},
+                    {name: 'v-model', description: 'Defines the value of the checkbox. Needed when passing an array to the v-model prop', remark: ''},
+                ],
+
+                docRadio: [
+                    {name: 'disabled', description: 'Disables the checkbox. Adds the is-disabled class to the button', remark: ''},
+                    {name: 'checked', description: 'Control whether the checkbox is checked or not', remark: 'You must use a two way binding. You can either use a boolean or an array'},
+                    {name: 'name', description: 'Defines the name used on the input element', remark: ''},
+                    {name: 'id', description: 'Defines the id used to link the label and the input', remark: ''},
+                    {name: 'v-model', description: 'Defines the value of the radio button', remark: ''},
+                ],
+
+                docSwitch: [
+                    {name: 'disabled', description: 'Disables the checkbox. Adds the is-disabled class to the button', remark: ''},
+                    {name: 'checked', description: 'Control whether the checkbox is checked or not', remark: 'You must use a two way binding. You can either use a boolean or an array'},
+                    {name: 'v-model', description: 'Defines the value of the switch. Useful when passing an array to thechecked prop', remark: ''},
+                    {name: 'id', description: 'Defines the value of the radio button', remark: ''},
+                ],
+
+                docIcon: [
+                    {name: 'disabled', description: 'Disables the checkbox. Adds the is-disabled class to the button', remark: ''},
+                    {name: 'checked', description: 'Control whether the icon is checked or not', remark: 'You must use a two way binding. You can either use a boolean or an array'},
+                    {name: 'icon', description: 'Set the toggle icon', remark: ''},
+                    {name: 'id', description: 'Defines the id used to link the label and the input', remark: ''},
+                    {name: 'v-model', description: 'Defines the value of the toggle. Useful when passing an array to thechecked prop', remark: ''},
+                ],
             }
         }
     }

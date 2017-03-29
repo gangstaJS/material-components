@@ -56,10 +56,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -77,7 +77,22 @@ export default {
                 firstName: '',
                 lastName: '',
                 email: ''
-            }
+            },
+
+            doc: [
+                {name: 'v-model', description: 'Defines a value for the textfield', remark: ''},
+                {name: 'label', description: 'Defines the label used on the the textfield', remark: 'You don\'t need this if you use floating-label'},
+                {name: 'floating-label', description: 'Defines whether the label should float or not. If the given value is a String, you don\'t need to provide a label prop', remark: ''},
+                {name: 'textarea', description: 'Makes the textfield a textarea instead of an input', remark: ''},
+                {name: 'rows', description: 'Controls the number of rows used in the textarea', remark: 'Needs the textarea prop'},
+                {name: 'pattern', description: 'Input validation using a Regex', remark: 'Only works on non-textareas'},
+                {name: 'error', description: 'Defines the error displayed when the input text doesn\'t match the given pattern', remark: 'Needs the pattern prop'},
+                {name: 'expandable', description: 'Makes the textfield look like a button that expands. You need to pass a material icon to this prop', remark: 'Needs to have an id set'},
+                {name: 'type', description: 'Defines the type of the input', remark: 'Defaults to text. Only works on non-textarea'},
+                {name: 'disabled', description: 'Disables the input', remark: 'Add it without any value or bind it to a Boolean'},
+                {name: 'readonly', description: 'Makes the input readonly', remark: 'Add it without any value or bind it to a Boolean'},
+                {name: 'maxlength', description: 'Defines the maxlength of the input or textarea', remark: 'This uses html attribute maxlength'},
+            ]
         }
     }
 }

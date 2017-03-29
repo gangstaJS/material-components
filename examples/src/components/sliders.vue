@@ -30,10 +30,10 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
@@ -47,7 +47,14 @@
         },
         data(){
             return{
-                amount: 0
+                amount: 0,
+                doc: [
+                    {name: 'v-model', description: 'Current value of a slider', remark: ''},
+                    {name: 'step', description: 'Step of slide', remark: ''},
+                    {name: 'min', description: 'Minimal value of a slider', remark: ''},
+                    {name: 'max', description: 'Maximal value of a slider', remark: ''},
+                    {name: 'disabled', description: 'true | false', remark: ''},
+                ]
             }
         }
     }

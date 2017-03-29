@@ -119,7 +119,11 @@
                 testData3: ['004','005', 100],
 
                 doc: [
-                    {name: '', description: '', remark: ''}
+                    {name: 'data-source', description: 'Data source for a select, must be an array', remark: 'Required'},
+                    {name: 'v-model', description: 'Current value of a select', remark: ''},
+                    {name: 'id', description: 'need an id to handle the menu toggling.', remark: 'Required'},
+                    {name: 'search', description: 'Add search input to a select', remark: 'Optional'},
+                    {name: 'multiple', description: 'multiple select items', remark: 'Optional'},
                 ]
             }
         }

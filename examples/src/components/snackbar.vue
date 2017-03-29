@@ -22,13 +22,17 @@
             </m-table-head>
 
             <m-table-body>
-                <m-table-row>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
-                    <m-table-cell></m-table-cell>
+                <m-table-row v-for="prop in doc">
+                    <m-table-cell>{{prop.name}}</m-table-cell>
+                    <m-table-cell>{{prop.description}}</m-table-cell>
+                    <m-table-cell>{{prop.remark}}</m-table-cell>
                 </m-table-row>
             </m-table-body>
         </m-table>
+
+        <p>
+            If you use multiple snackbars at the same time, they will overlap. Click on both button to see an example. If you don't want this to happen use one single snackbar for all your notifications
+        </p>
 
     </div>
 </template>
@@ -40,6 +44,10 @@
 
         data(){
             return {
+                doc: [
+                    //{name: 'event-source', description: '', remark: ''},
+                    {name: 'display-on', description: 'Name of event which will be fired after trigger emit', remark: ''},
+                ]
             }
         },
 

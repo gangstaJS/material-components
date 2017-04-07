@@ -42,6 +42,15 @@
             <h4><a href="https://jsfiddle.net/ozzon91/2np67okx/" target="_blank">Open example above on jsfiddle</a></h4>
         </p>
 
+
+        <h4>Install from npm</h4>
+
+            <pre v-pre>
+                <code class="html">
+npm i -S milo-material-components
+                </code>
+            </pre>
+
     </div>
 </template>
 <script>

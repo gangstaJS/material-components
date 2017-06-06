@@ -40,7 +40,8 @@ export default {
     noFocusTrap: {
       type: Boolean,
       default: false
-    }
+    },
+    closeCb: Function
   },
   mounted () {
     if (!this.noFocusTrap) this._focusTrap = createFocusTrap(this.$el)
@@ -55,9 +56,16 @@ export default {
       this.show = false
       if (this._focusTrap) this._focusTrap.deactivate()
       this.$emit('close')
+      this.closeCb()
     },
     closeIfOutside ({ target }) {
-      if (target === this.$refs.out) this.close()
+      if (target === this.$refs.out) {
+        this.close()
+
+        if(this.closeCb instanceof Function) {
+            this.closeCb()
+        }
+      }
     }
   },
   watch: {

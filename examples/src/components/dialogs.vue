@@ -2,7 +2,7 @@
     <div>
         <h3>Dialogs</h3>
 
-        <m-dialog ref="msg" title="MDL Dialog">
+        <m-dialog ref="msg" title="MDL Dialog" :close-cb="test">
             <p>
                 This is an example of the Material Design Lite dialog component. Please use responsibly.
             </p>
@@ -97,6 +97,10 @@
 
             openAction() {
                 this.$refs.msg2.open();
+            },
+
+            test() {
+                console.log(12321);
             }
         },
         mounted() {
